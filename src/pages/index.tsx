@@ -1,15 +1,15 @@
-import { Layout, Menu } from 'antd';
+import { Layout, Menu } from 'antd'
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
   VideoCameraOutlined,
   UploadOutlined,
- } from '@ant-design/icons';
+ } from '@ant-design/icons'
 import Head from 'next/head'
 import styles from '@styles/Home.module.scss'
 
-const { Header, Sider, Content } = Layout;
+const { Header, Sider, Content } = Layout
 
 export default function Home() {
   return (
