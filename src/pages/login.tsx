@@ -16,13 +16,13 @@ const tailLayout = {
 }
 
 const Login: FC = () => {
-  const { email, hasRemember, isAuth } = useSelector((state: any) => state.auth)
+  const { email, hasRemember, accessToken } = useSelector((state: any) => state.auth)
   const dispatch = useDispatch()
   const router = useRouter()
 
   useEffect(() => {
-    if(isAuth) router.replace('/')
-  }, [isAuth])
+    if(accessToken) router.replace('/')
+  }, [accessToken])
 
   const onFinish = (values: any) => {
     dispatch(login(values))
@@ -40,7 +40,7 @@ const Login: FC = () => {
       </Head>
 
       {
-        isAuth ? <p>Redirecting...</p> : (
+        accessToken ? <p>Redirecting...</p> : (
           <div className={styles.container}>
             <div className={`site-card-border-less-wrapper ${styles.card_container}`}>
               <Card title="Login" bordered={true}>

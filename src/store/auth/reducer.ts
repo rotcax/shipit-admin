@@ -4,7 +4,7 @@ import { LOGIN, LOGOUT } from './action-types'
 
 const initialState: AuthState = {
   email: '',
-  isAuth: false,
+  accessToken: null,
   hasRemember: false
 }
 

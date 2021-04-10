@@ -11,10 +11,11 @@ export const login = (credentials: CredentialsProps) => dispatch => {
     if(!user) throw 'Invalid user'
     if(user.password != password) throw 'Invalid password'
 
+    delete user.password
+
     dispatch(actionObject(LOGIN, {
-      email: user.email,
-      isAuth: true,
-      hasRemember: remember
+      hasRemember: remember,
+      ...user
     }))
 
   } catch(e) {
@@ -25,13 +26,13 @@ export const login = (credentials: CredentialsProps) => dispatch => {
 export const logout = () => (dispatch, getState) => {
   let
     currentEmail = '',
-    currentIsAuth = false
+    currentIsAuth = null
 
   const { auth: { email, hasRemember } } = getState()
   if(hasRemember) currentEmail = email
 
   dispatch(actionObject(LOGOUT, {
     email: currentEmail,
-    isAuth: currentIsAuth
+    accessToken: currentIsAuth
   }))
 }

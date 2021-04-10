@@ -1,6 +1,6 @@
 export type AuthState = {
   email: string
-  isAuth: boolean
+  accessToken: string | null
   hasRemember: boolean
 }
 

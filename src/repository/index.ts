@@ -1,6 +1,7 @@
 export const users = [
   {
-    email: 'admin@correo.com',
-    password: '12345678'
+    email: 'prueba_front@shipit.cl',
+    password: '12345678',
+    accessToken: 'MWhEAdkHKYdscen_4cxR'
   }
 ]

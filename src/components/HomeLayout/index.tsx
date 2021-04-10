@@ -18,14 +18,14 @@ const { Header, Sider, Content } = Layout
 
 const HomeLayout: FC<HomeLayoutProps> = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false)
-  const { auth: { isAuth } } = useSelector((state: any) => state)
+  const { auth: { accessToken } } = useSelector((state: any) => state)
 
   const dispatch = useDispatch()
   const router = useRouter()
 
   useEffect(() => {
-    if(!isAuth) router.replace('/login')
-  }, [isAuth])
+    if(!accessToken) router.replace('/login')
+  }, [accessToken])
 
   const toggle = () => setCollapsed(!collapsed)
   const logoutApp = () => dispatch(logout())
@@ -33,7 +33,7 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children }) => {
   return (
     <>
       {
-        !isAuth ? < p>Redirecting...</p> : (
+        !accessToken ? < p>Redirecting...</p> : (
           <Layout className={styles.container}>
             <Sider trigger={null} collapsible collapsed={collapsed}>
               <div className={styles.logo} />
