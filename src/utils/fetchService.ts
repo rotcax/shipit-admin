@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-const ACCESS_USER: string = process.env.ACCESS_USER
-const ACCESS_TOKEN: string = process.env.ACCESS_TOKEN
+const ACCESS_USER: string = process.env.NEXT_PUBLIC_ACCESS_USER
+const ACCESS_TOKEN: string = process.env.NEXT_PUBLIC_ACCESS_TOKEN
 
 const fetchService = async (url: string, method: string = 'GET', data: any | null = null) => {
   const headers = {
