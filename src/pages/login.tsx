@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import { Form, Input, Button, Checkbox, Card } from 'antd'
 import Head from 'next/head'
 import styles from '@styles/Login.module.scss'
@@ -11,7 +12,7 @@ const tailLayout = {
   wrapperCol: { offset: 5, span: 16 },
 }
 
-const Login = () => {
+const Login: FC = () => {
   const onFinish = (values: any) => {
     console.log('Success:', values)
   }
