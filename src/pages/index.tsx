@@ -1,3 +1,4 @@
+import { FC, useState, createElement } from 'react'
 import { Layout, Menu } from 'antd'
 import {
   MenuUnfoldOutlined,
@@ -11,7 +12,11 @@ import styles from '@styles/Home.module.scss'
 
 const { Header, Sider, Content } = Layout
 
-export default function Home() {
+const Home: FC = () => {
+  const [collapsed, setCollapsed] = useState(false)
+
+  const toggle = () => setCollapsed(!collapsed)
+
   return (
     <>
       <Head>
@@ -20,7 +25,7 @@ export default function Home() {
       </Head>
 
       <Layout style={{ height: '100vh' }}>
-        <Sider trigger={null} collapsible /*collapsed={this.state.collapsed}*/>
+        <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className={styles.logo} />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1" icon={<UserOutlined />}>
@@ -36,10 +41,10 @@ export default function Home() {
         </Sider>
         <Layout className={styles.site_layout}>
           <Header className={styles.site_layout_background} style={{ padding: 0 }}>
-            {/* {React.createElement(this.state.collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-              className: 'trigger',
-              onClick: this.toggle,
-            })} */}
+            {createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+              className: styles.trigger,
+              onClick: toggle,
+            })}
           </Header>
           <Content
             className={styles.site_layout_background}
@@ -56,3 +61,5 @@ export default function Home() {
     </>
   )
 }
+
+export default Home
