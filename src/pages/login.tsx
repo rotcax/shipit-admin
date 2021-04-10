@@ -1,5 +1,8 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Form, Input, Button, Checkbox, Card } from 'antd'
+import { useRouter } from 'next/router'
+import { login } from '@store/actions'
 import Head from 'next/head'
 import styles from '@styles/Login.module.scss'
 
@@ -13,13 +16,21 @@ const tailLayout = {
 }
 
 const Login: FC = () => {
+  const { email, hasRemember, isAuth } = useSelector((state: any) => state.auth)
+  const dispatch = useDispatch()
+  const router = useRouter()
+
   const onFinish = (values: any) => {
-    console.log('Success:', values)
+    dispatch(login(values))
   }
 
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo)
   }
+
+  useEffect(() => {
+    if(isAuth) router.replace('/')
+  }, [isAuth])
 
   return (
     <>
@@ -34,13 +45,13 @@ const Login: FC = () => {
             <Form
               {...layout}
               name="basic"
-              initialValues={{ remember: false }}
+              initialValues={{ remember: hasRemember, username: email }}
               onFinish={onFinish}
               onFinishFailed={onFinishFailed}
             >
               <Form.Item
                 label="Username"
-                name="username"
+                name="email"
                 rules={[{ required: true, message: 'Please input your username!' }]}
               >
                 <Input />

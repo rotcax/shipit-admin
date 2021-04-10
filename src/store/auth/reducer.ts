@@ -4,7 +4,8 @@ import { LOGIN } from './action-types'
 
 const initialState: AuthState = {
   email: '',
-  isAuth: false
+  isAuth: false,
+  hasRemember: false
 }
 
 const reducer = (state = initialState, { type, payload }: AnyAction) => {
