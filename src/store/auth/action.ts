@@ -1,7 +1,7 @@
 import { actionObject } from '@utils'
 import { CredentialsProps } from '@types'
 import { users } from '@repository'
-import { LOGIN } from './action-types'
+import { LOGIN, LOGOUT } from './action-types'
 
 export const login = (credentials: CredentialsProps) => dispatch => {
   try {
@@ -16,4 +16,18 @@ export const login = (credentials: CredentialsProps) => dispatch => {
   } catch(e) {
     console.log(e);
   }
+}
+
+export const logout = () => (dispatch, getState) => {
+  let
+    currentEmail = '',
+    currentIsAuth = false
+
+  const { email, hasRemember } = getState()
+  if(hasRemember) currentEmail = email
+
+  dispatch(actionObject(LOGOUT, {
+    email: currentEmail,
+    isAuth: currentIsAuth
+  }))
 }

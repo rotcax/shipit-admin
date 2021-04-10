@@ -1,6 +1,6 @@
 import { AnyAction } from 'redux'
 import { AuthState } from '@types';
-import { LOGIN } from './action-types'
+import { LOGIN, LOGOUT } from './action-types'
 
 const initialState: AuthState = {
   email: '',
@@ -11,6 +11,9 @@ const initialState: AuthState = {
 const reducer = (state = initialState, { type, payload }: AnyAction) => {
   switch(type) {
     case LOGIN:
+      return { ...state, ...payload }
+
+    case LOGOUT:
       return { ...state, ...payload }
 
     default:

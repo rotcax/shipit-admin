@@ -1,7 +1,8 @@
 import { FC, useState, createElement, useEffect } from 'react'
-import { useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
+import { useSelector, useDispatch } from 'react-redux'
 import { Layout, Menu, Button, Tooltip } from 'antd'
+import { useRouter } from 'next/router'
+import { logout } from '@store/actions'
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -17,14 +18,17 @@ const { Header, Sider, Content } = Layout
 
 const Home: FC = () => {
   const [collapsed, setCollapsed] = useState(false)
-  const router = useRouter()
   const { auth: { isAuth } } = useSelector((state: any) => state)
 
-  const toggle = () => setCollapsed(!collapsed)
+  const dispatch = useDispatch()
+  const router = useRouter()
 
   useEffect(() => {
     if(!isAuth) router.replace('/login')
   }, [isAuth])
+
+  const toggle = () => setCollapsed(!collapsed)
+  const logoutApp = () => dispatch(logout())
 
   return (
     <>
@@ -59,7 +63,7 @@ const Home: FC = () => {
                 </div>
                 <div className={styles.logout_button_container}>
                   <Tooltip title="Salir">
-                    <Button shape="circle" icon={<LogoutOutlined />} />
+                    <Button shape="circle" icon={<LogoutOutlined />} onClick={logoutApp} />
                   </Tooltip>
                 </div>
               </Header>
