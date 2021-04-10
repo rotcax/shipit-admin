@@ -40,7 +40,7 @@ const makeStore: any = ({ isServer }) => {
   const storage = typeof window !== 'undefined' ? createWebStorage('local') : createNoopStorage();
 
   const persistConfig = {
-    key: 'nameRoot',
+    key: 'shipitRoot',
     storage
   }
 
