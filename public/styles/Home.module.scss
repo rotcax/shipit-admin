@@ -29,3 +29,19 @@
   padding: 24px;
   min-height: 280px;
 }
+
+.header_container {
+  padding: 0;
+  display: flex;
+}
+
+.trigger_container {
+  width: 90%;
+}
+
+.logout_button_container {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

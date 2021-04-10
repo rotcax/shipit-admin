@@ -1,13 +1,14 @@
 import { FC, useState, createElement, useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
-import { Layout, Menu } from 'antd'
+import { Layout, Menu, Button, Tooltip } from 'antd'
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
   VideoCameraOutlined,
   UploadOutlined,
+  LogoutOutlined
  } from '@ant-design/icons'
 import Head from 'next/head'
 import styles from '@styles/Home.module.scss'
@@ -49,11 +50,18 @@ const Home: FC = () => {
               </Menu>
             </Sider>
             <Layout className={styles.site_layout}>
-              <Header className={styles.site_layout_background} style={{ padding: 0 }}>
-                {createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-                  className: styles.trigger,
-                  onClick: toggle,
-                })}
+              <Header className={`${styles.site_layout_background} ${styles.header_container}`}>
+                <div className={styles.trigger_container}>
+                  {createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+                    className: styles.trigger,
+                    onClick: toggle,
+                  })}
+                </div>
+                <div className={styles.logout_button_container}>
+                  <Tooltip title="Salir">
+                    <Button shape="circle" icon={<LogoutOutlined />} />
+                  </Tooltip>
+                </div>
               </Header>
               <Content
                 className={`${styles.site_layout_background} ${styles.site_layout_separation}`}
