@@ -1,7 +1,8 @@
 import { AnyAction } from 'redux'
+import { AuthState } from '@types';
 import { LOGIN } from './action-types'
 
-const initialState = {
+const initialState: AuthState = {
   email: '',
   isAuth: false
 }
