@@ -5,7 +5,7 @@ import { LOGIN, LOGOUT } from './action-types'
 import { GET_COMMUNES } from '@store/commune/action-types'
 import { communes } from '@utils/path'
 
-export const login = (credentials: CredentialsProps) => async dispatch => {
+export const login = (credentials: CredentialsProps) => {
   try {
     const { email, password, remember } = credentials
     const user = users.find(user => user.email == email)
@@ -13,17 +13,20 @@ export const login = (credentials: CredentialsProps) => async dispatch => {
     if(!user) throw 'Invalid user'
     if(user.password != password) throw 'Invalid password'
 
-    const response = await fetchService(communes)
-    dispatch(actionObject(GET_COMMUNES, { communes: response }))
-
-    dispatch(actionObject(LOGIN, {
+    return actionObject(LOGIN, {
       hasRemember: remember,
       accessToken: user.accessToken,
       email: user.email
-    }))
+    })
 
   } catch(e) {
     console.log(e);
+
+    return actionObject(LOGIN, {
+      hasRemember: false,
+      accessToken: null,
+      email: ''
+    })
   }
 }
 

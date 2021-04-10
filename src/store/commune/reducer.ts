@@ -1,6 +1,6 @@
 import { AnyAction } from 'redux'
 import { CommuneState } from '@types';
-import { GET_COMMUNES } from './action-types'
+import { GET_COMMUNES_ASYNC } from './action-types'
 
 const initialState: CommuneState = {
   communes: []
@@ -8,7 +8,7 @@ const initialState: CommuneState = {
 
 const reducer = (state = initialState, { type, payload }: AnyAction) => {
   switch(type) {
-    case GET_COMMUNES:
+    case GET_COMMUNES_ASYNC:
       return { ...state, ...payload }
 
     default:
