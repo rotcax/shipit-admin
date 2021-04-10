@@ -3,3 +3,7 @@ export type AuthState = {
   isAuth: boolean
   hasRemember: boolean
 }
+
+export type CommuneState = {
+  communes: Array<any>
+}

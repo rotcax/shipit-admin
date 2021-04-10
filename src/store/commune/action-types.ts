@@ -1,0 +1,1 @@
+export const GET_COMMUNES = 'GET_COMMUNES'
