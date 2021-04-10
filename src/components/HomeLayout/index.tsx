@@ -38,7 +38,9 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children }) => {
           <Layout className={styles.container}>
             <Sider trigger={null} collapsible collapsed={collapsed}>
               <div className={styles.logo} />
-              <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+              <Menu theme="dark" mode="inline" defaultSelectedKeys={[
+                router.pathname == '/' ? '1' : router.pathname == '/communes' ? '2' : '3'
+              ]}>
                 <Menu.Item key="1" icon={<UserOutlined />}>
                   <Link href="/">
                     Inicio
