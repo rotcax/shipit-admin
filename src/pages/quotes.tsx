@@ -12,7 +12,7 @@ const Quotes: FC = () => {
       </Head>
 
       <HomeLayout>
-        <div>
+        <div style={{ height: '100vh' }}>
           Quotes
         </div>
       </HomeLayout>

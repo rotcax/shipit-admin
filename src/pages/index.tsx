@@ -12,7 +12,7 @@ const Home: FC = () => {
       </Head>
 
       <HomeLayout>
-        <div>
+        <div style={{ height: '100vh' }}>
           Home
         </div>
       </HomeLayout>
