@@ -11,7 +11,8 @@ import {
   VideoCameraOutlined,
   UploadOutlined,
   LogoutOutlined
- } from '@ant-design/icons'
+} from '@ant-design/icons'
+import Link from 'next/link'
 import styles from './styles.module.scss'
 
 const { Header, Sider, Content } = Layout
@@ -24,7 +25,7 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children }) => {
   const router = useRouter()
 
   useEffect(() => {
-    if(!accessToken) router.replace('/login')
+    if(!accessToken) router.push('/login')
   }, [accessToken])
 
   const toggle = () => setCollapsed(!collapsed)
@@ -39,13 +40,19 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children }) => {
               <div className={styles.logo} />
               <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
                 <Menu.Item key="1" icon={<UserOutlined />}>
-                  Inicio
+                  <Link href="/">
+                    Inicio
+                  </Link>
                 </Menu.Item>
                 <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-                  Destinos
+                  <Link href="/communes">
+                    Destinos
+                  </Link>
                 </Menu.Item>
                 <Menu.Item key="3" icon={<UploadOutlined />}>
-                  Cotizador
+                  <Link href="/quotes">
+                    Cotizador
+                  </Link>
                 </Menu.Item>
               </Menu>
             </Sider>

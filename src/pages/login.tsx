@@ -21,7 +21,9 @@ const Login: FC = () => {
   const router = useRouter()
 
   useEffect(() => {
-    if(accessToken) router.replace('/')
+    console.log(router);
+
+    if(accessToken) router.push('/')
   }, [accessToken])
 
   const onFinish = (values: any) => {
