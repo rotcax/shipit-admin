@@ -25,7 +25,8 @@
       "@utils": ["./src/utils"],
       "@utils/*": ["./src/utils/*"],
       "@styles/*": ["./public/styles/*"],
-      "@types": ["./src/types"]
+      "@types": ["./src/types"],
+      "@repository": ["./src/repository"]
     }
   },
   "include": [
