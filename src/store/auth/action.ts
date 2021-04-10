@@ -5,13 +5,17 @@ import { LOGIN, LOGOUT } from './action-types'
 
 export const login = (credentials: CredentialsProps) => dispatch => {
   try {
-    const { email, password } = credentials
+    const { email, password, remember } = credentials
     const user = users.find(user => user.email == email)
 
     if(!user) throw 'Invalid user'
     if(user.password != password) throw 'Invalid password'
 
-    dispatch(actionObject(LOGIN, { email: user.email, isAuth: true }))
+    dispatch(actionObject(LOGIN, {
+      email: user.email,
+      isAuth: true,
+      hasRemember: remember
+    }))
 
   } catch(e) {
     console.log(e);
@@ -23,7 +27,7 @@ export const logout = () => (dispatch, getState) => {
     currentEmail = '',
     currentIsAuth = false
 
-  const { email, hasRemember } = getState()
+  const { auth: { email, hasRemember } } = getState()
   if(hasRemember) currentEmail = email
 
   dispatch(actionObject(LOGOUT, {

@@ -20,6 +20,10 @@ const Login: FC = () => {
   const dispatch = useDispatch()
   const router = useRouter()
 
+  useEffect(() => {
+    if(isAuth) router.replace('/')
+  }, [isAuth])
+
   const onFinish = (values: any) => {
     dispatch(login(values))
   }
@@ -28,10 +32,6 @@ const Login: FC = () => {
     console.log('Failed:', errorInfo)
   }
 
-  useEffect(() => {
-    if(isAuth) router.replace('/')
-  }, [isAuth])
-
   return (
     <>
       <Head>
@@ -39,45 +39,49 @@ const Login: FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className={styles.container}>
-        <div className={`site-card-border-less-wrapper ${styles.card_container}`}>
-          <Card title="Login" bordered={true}>
-            <Form
-              {...layout}
-              name="basic"
-              initialValues={{ remember: hasRemember, username: email }}
-              onFinish={onFinish}
-              onFinishFailed={onFinishFailed}
-            >
-              <Form.Item
-                label="Username"
-                name="email"
-                rules={[{ required: true, message: 'Please input your username!' }]}
-              >
-                <Input />
-              </Form.Item>
+      {
+        isAuth ? <p>Redirecting...</p> : (
+          <div className={styles.container}>
+            <div className={`site-card-border-less-wrapper ${styles.card_container}`}>
+              <Card title="Login" bordered={true}>
+                <Form
+                  {...layout}
+                  name="basic"
+                  initialValues={{ remember: hasRemember, email }}
+                  onFinish={onFinish}
+                  onFinishFailed={onFinishFailed}
+                >
+                  <Form.Item
+                    label="Username"
+                    name="email"
+                    rules={[{ required: true, message: 'Please input your username!' }]}
+                  >
+                    <Input />
+                  </Form.Item>
 
-              <Form.Item
-                label="Password"
-                name="password"
-                rules={[{ required: true, message: 'Please input your password!' }]}
-              >
-                <Input.Password />
-              </Form.Item>
+                  <Form.Item
+                    label="Password"
+                    name="password"
+                    rules={[{ required: true, message: 'Please input your password!' }]}
+                  >
+                    <Input.Password />
+                  </Form.Item>
 
-              <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-                <Checkbox>Remember me</Checkbox>
-              </Form.Item>
+                  <Form.Item {...tailLayout} name="remember" valuePropName="checked">
+                    <Checkbox>Remember me</Checkbox>
+                  </Form.Item>
 
-              <Form.Item {...tailLayout}>
-                <Button type="primary" htmlType="submit">
-                  Submit
-                </Button>
-              </Form.Item>
-            </Form>
-          </Card>
-        </div>
-      </div>
+                  <Form.Item {...tailLayout}>
+                    <Button type="primary" htmlType="submit">
+                      Submit
+                    </Button>
+                  </Form.Item>
+                </Form>
+              </Card>
+            </div>
+          </div>
+        )
+      }
     </>
   )
 }
