@@ -1,8 +1,9 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects'
 import { actionObject } from '@utils'
 import { users } from '@repository'
-import { getCommunesAsync } from '../commune/saga'
 import { LOGIN, LOGIN_ASYNC, LOGOUT, LOGOUT_ASYNC } from './action-types'
+import { getCommunesAsync } from '../commune/saga'
+import { getCouriersAsync } from '../courier/saga'
 import { getAuth } from '../selectors'
 
 function* loginAsync({ payload }: any) {
@@ -14,6 +15,7 @@ function* loginAsync({ payload }: any) {
     if(user.password != password) throw 'Invalid password'
 
     yield call(getCommunesAsync)
+    yield call(getCouriersAsync)
 
     yield put(actionObject(LOGIN_ASYNC, {
       hasRemember: remember,
