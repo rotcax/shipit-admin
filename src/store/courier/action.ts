@@ -1,13 +1,4 @@
-import { actionObject, fetchService } from '@utils';
-import { couriers } from '@utils/path';
+import { actionObject } from '@utils';
 import { GET_COURIERS } from './action-types'
 
-export const getCouriers = () => async dispatch => {
-  try {
-    const response = await fetchService(couriers)
-    dispatch(actionObject(GET_COURIERS, { couriers: response }))
-
-  } catch (e) {
-    console.log(e);
-  }
-}
+export const getCouriers = () => actionObject(GET_COURIERS)
