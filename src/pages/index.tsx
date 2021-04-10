@@ -10,8 +10,6 @@ import {
 import Head from 'next/head'
 import styles from '@styles/Home.module.scss'
 
-import { HOST_API_URI, HOST_PRICE_URI } from '@utils/path'
-
 const { Header, Sider, Content } = Layout
 
 const Home: FC = () => {
@@ -60,8 +58,6 @@ const Home: FC = () => {
 }
 
 export async function getServerSideProps(context) {
-  console.log(HOST_PRICE_URI);
-
   return {
     props: {}, // will be passed to the page component as props
   }

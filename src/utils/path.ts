@@ -7,7 +7,7 @@ const
 export const
   HOST_API_URI = `${HTTP_PROTOCOL}${API_PREFIX}.${BASE_URL}`,
   HOST_PRICE_URI = `${HTTP_PROTOCOL}${PRICE_PREFIX}.${BASE_URL}`,
-  communes = 'communes',
-  couriers = 'couriers',
-  rates = 'rates',
-  shipments = 'shipments'
+  communes = `${HOST_API_URI}communes`,
+  couriers = `${HOST_PRICE_URI}couriers`,
+  rates = `${HOST_API_URI}rates`,
+  shipments = `${HOST_API_URI}shipments`
