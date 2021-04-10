@@ -24,7 +24,7 @@ const Home: FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Layout style={{ height: '100vh' }}>
+      <Layout className={styles.container}>
         <Sider trigger={null} collapsible collapsed={collapsed}>
           <div className={styles.logo} />
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
@@ -47,12 +47,7 @@ const Home: FC = () => {
             })}
           </Header>
           <Content
-            className={styles.site_layout_background}
-            style={{
-              margin: '24px 16px',
-              padding: 24,
-              minHeight: 280,
-            }}
+            className={`${styles.site_layout_background} ${styles.site_layout_separation}`}
           >
             Content
           </Content>
