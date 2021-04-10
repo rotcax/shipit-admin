@@ -7,3 +7,7 @@ export type AuthState = {
 export type CommuneState = {
   communes: Array<any>
 }
+
+export type CouriersState = {
+  couriers: Array<any>
+}
