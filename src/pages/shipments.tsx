@@ -1,6 +1,6 @@
 import { FC, useState } from 'react'
 import { Steps, Button, Form } from 'antd'
-import { HomeLayout, DestinyForm, SizesForm, SellerForm, CourierForm } from '@components'
+import { HomeLayout, DestinyForm, SizesForm, SellerForm, CourierForm, InsuranceForm } from '@components'
 import { createShipment } from '@store/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
@@ -28,7 +28,7 @@ const steps = [
   },
   {
     title: 'Seguro',
-    content: <CourierForm />,
+    content: <InsuranceForm />,
   },
   {
     title: 'Finalizar',
