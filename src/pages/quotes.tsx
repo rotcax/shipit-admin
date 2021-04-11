@@ -17,11 +17,7 @@ const steps = [
   {
     title: 'Second',
     content: <BetterCourier />,
-  },
-  {
-    title: 'Last',
-    content: 'Last-content',
-  },
+  }
 ]
 
 const Quotes: FC = () => {
@@ -82,12 +78,12 @@ const Quotes: FC = () => {
               )}
               {current === steps.length - 1 && (
                 <Button type="primary" onClick={() => message.success('Processing complete!')}>
-                  Done
+                  Crear un envio
                 </Button>
               )}
               {current > 0 && (
                 <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
-                  Previous
+                  Volver
                 </Button>
               )}
             </div>
