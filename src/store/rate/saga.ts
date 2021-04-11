@@ -19,7 +19,7 @@ export function* createRateAsync({ payload }: AnyAction) {
     yield put(actionObject(CREATE_RATE_ASYNC, { betterPrice: response }))
 
   } catch (error) {
-		yield put(actionObject(CREATE_RATE_ASYNC, { betterPrice: {} }))
+		yield put(actionObject(CREATE_RATE_ASYNC, { betterPrice: null }))
   }
 }
 

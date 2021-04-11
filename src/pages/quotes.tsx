@@ -1,5 +1,5 @@
 import { FC, useState } from 'react'
-import { HomeLayout, QuotesForm } from '@components'
+import { HomeLayout, QuotesForm, BetterCourier } from '@components'
 import { createRate } from '@store/actions'
 import { useDispatch } from 'react-redux'
 import Head from 'next/head'
@@ -12,11 +12,11 @@ const { Step } = Steps
 const steps = [
   {
     title: 'First',
-    content: <QuotesForm/>,
+    content: <QuotesForm />,
   },
   {
     title: 'Second',
-    content: 'Second-content',
+    content: <BetterCourier />,
   },
   {
     title: 'Last',
