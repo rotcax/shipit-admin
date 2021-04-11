@@ -1,8 +1,8 @@
 const
-  HTTP_PROTOCOL: string = process.env.NEXT_PUBLIC_HTTP_PROTOCOL,
-  API_PREFIX: string = process.env.NEXT_PUBLIC_API_PREFIX,
-  PRICE_PREFIX: string = process.env.NEXT_PUBLIC_PRICE_PREFIX,
-  BASE_URL: string = process.env.NEXT_PUBLIC_BASE_URL
+  HTTP_PROTOCOL: string = process.env.NEXT_PUBLIC_HTTP_PROTOCOL || 'https://',
+  API_PREFIX: string = process.env.NEXT_PUBLIC_API_PREFIX || 'shipit.cl/v/',
+  PRICE_PREFIX: string = process.env.NEXT_PUBLIC_PRICE_PREFIX || 'api',
+  BASE_URL: string = process.env.NEXT_PUBLIC_BASE_URL || 'prices'
 
 export const
   HOST_API_URI: string = `${HTTP_PROTOCOL}${API_PREFIX}.${BASE_URL}`,
