@@ -1,8 +1,19 @@
 import { AnyAction } from 'redux'
-import { CLEAR_SHIPMENT_FORM, CREATE_SHIPMENT_ASYNC, SET_COURIER_VALUES, SET_DESTINY_VALUES, SET_INSURANCE_VALUES, SET_SELLER_VALUES, SET_SHIPMENT_VALUES, SET_SIZES_VALUES } from './action-types'
 import { LOGOUT } from '../auth/action-types';
+import {
+  CLEAR_SHIPMENT_FORM,
+  CREATE_SHIPMENT_ASYNC,
+  SET_COURIER_VALUES,
+  SET_DESTINY_VALUES,
+  SET_INSURANCE_VALUES,
+  SET_SELLER_VALUES,
+  SET_SHIPMENT_VALUES,
+  SET_SIZES_VALUES,
+  CHANGE_SHIPMENT_DONE
+} from './action-types'
 
 const initialState = {
+  shipmentDone: false,
   result: null,
   currentForm: {
     sizes: {},
@@ -76,6 +87,9 @@ const reducer = (state = initialState, { type, payload }: AnyAction) => {
         ...state,
         currentForm: initialState.currentForm
       }
+
+    case CHANGE_SHIPMENT_DONE:
+      return { ...state, ...payload }
 
     case LOGOUT:
       return initialState
