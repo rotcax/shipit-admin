@@ -8,9 +8,10 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
-  VideoCameraOutlined,
+  FullscreenOutlined,
   UploadOutlined,
-  LogoutOutlined
+  LogoutOutlined,
+  DollarOutlined
 } from '@ant-design/icons'
 import Link from 'next/link'
 import styles from './styles.module.scss'
@@ -39,21 +40,29 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children }) => {
             <Sider trigger={null} collapsible collapsed={collapsed}>
               <div className={styles.logo} />
               <Menu theme="dark" mode="inline" defaultSelectedKeys={[
-                router.pathname == '/' ? '1' : router.pathname == '/communes' ? '2' : '3'
+                router.pathname == '/' ? '1'
+                  : router.pathname == '/communes' ? '2'
+                  : router.pathname == '/quotes' ? '3'
+                  : '4'
               ]}>
                 <Menu.Item key="1" icon={<UserOutlined />}>
                   <Link href="/">
                     Inicio
                   </Link>
                 </Menu.Item>
-                <Menu.Item key="2" icon={<VideoCameraOutlined />}>
+                <Menu.Item key="2" icon={<FullscreenOutlined />}>
                   <Link href="/communes">
                     Destinos
                   </Link>
                 </Menu.Item>
-                <Menu.Item key="3" icon={<UploadOutlined />}>
+                <Menu.Item key="3" icon={<DollarOutlined />}>
                   <Link href="/quotes">
                     Cotizador
+                  </Link>
+                </Menu.Item>
+                <Menu.Item key="4" icon={<UploadOutlined />}>
+                  <Link href="/shipments">
+                    Crear envio
                   </Link>
                 </Menu.Item>
               </Menu>
