@@ -4,7 +4,7 @@ import { Row, Col, Form, Input, Select } from 'antd'
 const { Option } = Select
 
 const QuotesForm = () => {
-  const { communes } = useSelector((state: any) => state.commune)
+  const { commune: { communes }, origin: { origins } } = useSelector((state: any) => state)
 
   return (
     <Row gutter={24}>
@@ -69,6 +69,22 @@ const QuotesForm = () => {
           ]}
         >
           <Input placeholder="placeholder" />
+        </Form.Item>
+      </Col>
+
+      <Col span={8}>
+        <Form.Item
+          name="origin_id"
+          label="Origen"
+          rules={[{ required: true, message: 'Province is required' }]}
+        >
+          <Select placeholder="Origen">
+            {
+              origins.map((origin, index) => (
+                <Option key={index} value={origin.address_book.address.commune_id}>{origin.address_book.address.commune_name}</Option>
+              ))
+            }
+          </Select>
         </Form.Item>
       </Col>
 

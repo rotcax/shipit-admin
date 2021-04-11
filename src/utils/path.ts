@@ -10,4 +10,5 @@ export const
   communes: string = `${HOST_API_URI}communes`,
   couriers: string = `${HOST_PRICE_URI}couriers`,
   rates: string = `${HOST_API_URI}rates`,
-  shipments: string = `${HOST_API_URI}shipments`
+  shipments: string = `${HOST_API_URI}shipments`,
+  origins: string = `${HOST_API_URI}origins`

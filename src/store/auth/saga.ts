@@ -5,6 +5,7 @@ import { users } from '@repository'
 import { LOGIN, LOGIN_ASYNC, LOGOUT, LOGOUT_ASYNC } from './action-types'
 import { getCommunesAsync } from '../commune/saga'
 import { getCouriersAsync } from '../courier/saga'
+import { getOriginsAsync } from '../origin/saga'
 import { getAuth } from '../selectors'
 
 function* loginAsync({ payload }: any) {
@@ -30,6 +31,7 @@ function* loginAsync({ payload }: any) {
     }))
 
     yield call(getCommunesAsync)
+    yield call(getOriginsAsync)
 
   } catch (error) {
 		message.error(error, 5)
