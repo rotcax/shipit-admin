@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Form, Input, Button, Checkbox, Card } from 'antd'
+import { Form, Input, Button, Checkbox, Card, message } from 'antd'
 import { useRouter } from 'next/router'
 import { login } from '@store/actions'
 import Head from 'next/head'
@@ -26,6 +26,7 @@ const Login: FC = () => {
 
   const onFinish = (values: any) => {
     dispatch(login(values))
+    message.success('Autenticado con exito', 5)
   }
 
   const onFinishFailed = (errorInfo: any) => {
