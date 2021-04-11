@@ -66,6 +66,22 @@ const SizesForm = () => {
           <Input placeholder="placeholder" />
         </Form.Item>
       </Col>
+
+      <Col span={12}>
+        <Form.Item
+          name="items"
+          label="Cantidad"
+          rules={[
+            {
+              required: true,
+              pattern: new RegExp(/^\d+$/),
+              message: 'Input something!',
+            },
+          ]}
+        >
+          <Input placeholder="placeholder" />
+        </Form.Item>
+      </Col>
     </Row>
   )
 }

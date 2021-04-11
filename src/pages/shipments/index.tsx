@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from 'react'
-import { Steps, Button, Form } from 'antd'
+import { Steps, Button, Form, message } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { HomeLayout } from '@components'
 import { steps, currentAction } from './elements'
-import { createShipment, clearShipmentForm } from '@store/actions'
+import { createShipment } from '@store/actions'
 import Head from 'next/head'
 import styles from '@styles/Quotes.module.scss'
 
@@ -13,14 +13,14 @@ const { Step } = Steps
 const Shipments: FC = () => {
   const [current, setCurrent] = useState(0)
   const [form] = Form.useForm()
-  const { currentForm } = useSelector((state: any) => state.shipment)
+  const { currentForm, shipmentDone } = useSelector((state: any) => state.shipment)
 
   const dispatch: any = useDispatch()
   const router = useRouter()
 
   useEffect(() => {
-    return () => dispatch(clearShipmentForm())
-  }, [])
+    if (shipmentDone) router.push('/')
+  }, [shipmentDone])
 
   const initialValues = {
     ...currentForm.courier,
@@ -32,10 +32,13 @@ const Shipments: FC = () => {
   const prev = () => setCurrent(current - 1)
 
   const onFinish = (values: any) => {
-    console.log(values);
-
     dispatch(currentAction(current)(values))
     setCurrent(current + 1)
+  }
+
+  const createShipmentDone = () => {
+    dispatch(createShipment())
+    message.info('Creando...', 0.5)
   }
 
   return (
@@ -68,7 +71,7 @@ const Shipments: FC = () => {
                 </Button>
               )}
               {current === steps.length - 1 && (
-                <Button type="primary" onClick={() => console.log('')}>
+                <Button type="primary" onClick={() => createShipmentDone()}>
                   Crear envio
                 </Button>
               )}

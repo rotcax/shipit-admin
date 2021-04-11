@@ -1,7 +1,15 @@
 import { actionObject } from '@utils';
-import { CREATE_SHIPMENT, SET_COURIER_VALUES, SET_DESTINY_VALUES, SET_INSURANCE_VALUES, SET_SELLER_VALUES, SET_SIZES_VALUES, CLEAR_SHIPMENT_FORM } from './action-types'
+import {
+  CREATE_SHIPMENT,
+  SET_COURIER_VALUES,
+  SET_DESTINY_VALUES,
+  SET_INSURANCE_VALUES,
+  SET_SELLER_VALUES,
+  SET_SIZES_VALUES,
+  CLEAR_SHIPMENT_FORM
+} from './action-types'
 
-export const createShipment = payload => actionObject(CREATE_SHIPMENT, payload)
+export const createShipment = () => actionObject(CREATE_SHIPMENT)
 
 export const setDestinyValues = payload => {
   const destiny = { ...payload }

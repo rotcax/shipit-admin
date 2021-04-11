@@ -1,28 +1,30 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects'
-import { AnyAction } from 'redux'
-import { actionObject, fetchService } from '@utils'
+import { actionObject, fetchService, makeId } from '@utils'
 import { shipments } from '@utils/path'
 import { CHANGE_SHIPMENT_DONE, CREATE_SHIPMENT, CREATE_SHIPMENT_ASYNC } from './action-types'
-import { getAuth, getCommune, getCourier } from '../selectors'
+import { getAuth, getCommune, getCourier, getShipment } from '../selectors'
 
-export function* createShipmentAsync({ payload }: AnyAction) {
+export function* createShipmentAsync() {
   try {
-    yield put(actionObject(CHANGE_SHIPMENT_DONE, { shipmentDone: true }))
-
     const { email, accessToken } = yield select(getAuth)
     const { communes } = yield select(getCommune)
     const { couriers } = yield select(getCourier)
+    const { currentForm } = yield select(getShipment)
 
     const shipment = {
-      ...payload,
+      kind: 0,
+      platform: 2,
+      reference: makeId(15),
+      items: currentForm.sizes.items,
+      ...currentForm,
       destiny: {
-        ...payload.destiny,
-        commune_name: communes.find(commune => commune.id == payload.destiny.commune_id)?.name,
+        ...currentForm.destiny,
+        commune_name: communes.find(commune => commune.id == currentForm.destiny.commune_id)?.name,
         kind: 'home_delivery'
       },
       courier: {
-        ...payload.courier,
-        id: couriers.find(courier => courier.name == payload.courier.client)?.id,
+        ...currentForm.courier,
+        id: couriers.find(courier => courier.name == currentForm.courier.client)?.id,
         selected: false,
         payable: false,
         algorithm: 1,
@@ -36,6 +38,8 @@ export function* createShipmentAsync({ payload }: AnyAction) {
       result: response,
       shipmentDone: true
     }))
+
+    yield put(actionObject(CHANGE_SHIPMENT_DONE, { shipmentDone: false }))
 
   } catch (error) {
 		yield put(actionObject(CREATE_SHIPMENT_ASYNC, { result: null }))
