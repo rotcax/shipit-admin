@@ -1,5 +1,7 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
 import { HomeLayout, QuotesForm } from '@components'
+import { createRate } from '@store/actions'
+import { useDispatch } from 'react-redux'
 import Head from 'next/head'
 import styles from '@styles/Quotes.module.scss'
 
@@ -26,9 +28,7 @@ const Quotes: FC = () => {
   const [current, setCurrent] = useState(0)
   const [form] = Form.useForm()
 
-  useEffect(() => {
-    if (0) setCurrent(current + 1)
-  }, [])
+  const dispatch = useDispatch()
 
   const send = () => {
     form.submit()
@@ -43,7 +43,8 @@ const Quotes: FC = () => {
   }
 
   const onFinish = (values: any) => {
-    console.log('Received values of form: ', values)
+    dispatch(createRate(values))
+    setCurrent(current + 1)
   }
 
   return (
