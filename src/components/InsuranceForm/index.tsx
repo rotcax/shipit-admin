@@ -9,13 +9,6 @@ const InsuranceForm = () => {
         <Form.Item
           name="ticket_amount"
           label="Nro. Boleta de venta"
-          rules={[
-            {
-              required: true,
-              pattern: new RegExp(/^\d+$/),
-              message: 'Input something!',
-            },
-          ]}
         >
           <Input placeholder="placeholder" />
         </Form.Item>
@@ -25,13 +18,6 @@ const InsuranceForm = () => {
         <Form.Item
           name="ticket_number"
           label="Valor de los productos"
-          rules={[
-            {
-              required: true,
-              pattern: new RegExp(/^\d+$/),
-              message: 'Input something!',
-            },
-          ]}
         >
           <Input placeholder="placeholder" />
         </Form.Item>
@@ -41,12 +27,6 @@ const InsuranceForm = () => {
         <Form.Item
           name="detail"
           label="Detalles"
-          rules={[
-            {
-              required: true,
-              message: 'Input something!',
-            },
-          ]}
         >
           <Input placeholder="placeholder" />
         </Form.Item>
@@ -56,12 +36,6 @@ const InsuranceForm = () => {
         <Form.Item
           name="extra"
           label="Seguro adicional?"
-          rules={[
-            {
-              required: true,
-              message: 'Input something!',
-            },
-          ]}
         >
           <Select placeholder="Extra">
             <Option value="false">No</Option>

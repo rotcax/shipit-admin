@@ -1,17 +1,10 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { Steps, Button, Form } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { HomeLayout } from '@components'
 import { steps, currentAction } from './elements'
-import {
-  createShipment,
-  setDestinyValues,
-  setSellerValues,
-  setSizesValues,
-  setCourierValues,
-  setInsuranceValues
-} from '@store/actions'
+import { createShipment, clearShipmentForm } from '@store/actions'
 import Head from 'next/head'
 import styles from '@styles/Quotes.module.scss'
 
@@ -22,14 +15,18 @@ const Shipments: FC = () => {
   const [form] = Form.useForm()
   const { currentForm } = useSelector((state: any) => state.shipment)
 
+  const dispatch: any = useDispatch()
+  const router = useRouter()
+
+  useEffect(() => {
+    return () => dispatch(clearShipmentForm())
+  }, [])
+
   const initialValues = {
     ...currentForm.courier,
     ...currentForm.destiny,
     ...currentForm.sizes
   }
-
-  const dispatch = useDispatch()
-  const router = useRouter()
 
   const next = () => form.submit()
   const prev = () => setCurrent(current - 1)
