@@ -1,3 +1,4 @@
+import React from 'react'
 import { DestinyForm, SizesForm, SellerForm, CourierForm, InsuranceForm } from '@components'
 import {
   setDestinyValues,
