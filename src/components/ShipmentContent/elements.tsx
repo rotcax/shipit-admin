@@ -1,5 +1,9 @@
 import React from 'react'
-import { DestinyForm, SizesForm, SellerForm, CourierForm, InsuranceForm } from '@components'
+import DestinyForm from '../DestinyForm'
+import SizesForm from '../SizesForm'
+import SellerForm from '../SellerForm'
+import CourierForm from '../CourierForm'
+import InsuranceForm from '../InsuranceForm'
 import {
   setDestinyValues,
   setSellerValues,

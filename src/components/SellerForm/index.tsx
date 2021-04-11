@@ -1,26 +1,30 @@
-import { Row, Col, Form, Input, Select } from 'antd'
+import { Form, Input, Select } from 'antd'
+
+const { Option } = Select
 
 const SellerForm = () => {
   return (
-    <Row gutter={24}>
-      <Col span={12}>
-        <Form.Item
-          name="name"
-          label="Nombre del e-commerce"
-        >
-          <Input placeholder="placeholder" />
-        </Form.Item>
-      </Col>
+    <div style={{ display: 'flex', width: '100%' }}>
+      <Form.Item
+        style={{ width: '40%', marginRight: 30 }}
+        name="name"
+        label="Nombre del e-commerce"
+      >
+        <Select placeholder="e-commerce">
+          <Option value="woocommerce">Woocommerce</Option>
+          <Option value="shopify">Shopify</Option>
+          <Option value="magento">Magento</Option>
+        </Select>
+      </Form.Item>
 
-      <Col span={12}>
-        <Form.Item
-          name="seller_id"
-          label="ID de la venta"
-        >
-          <Input placeholder="placeholder" />
-        </Form.Item>
-      </Col>
-    </Row>
+      <Form.Item
+        style={{ width: '40%' }}
+        name="seller_id"
+        label="ID de la venta"
+      >
+        <Input placeholder="placeholder" />
+      </Form.Item>
+    </div>
   )
 }
 
