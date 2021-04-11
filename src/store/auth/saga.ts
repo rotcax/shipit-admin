@@ -1,4 +1,5 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects'
+import { message } from 'antd'
 import { actionObject } from '@utils'
 import { users } from '@repository'
 import { LOGIN, LOGIN_ASYNC, LOGOUT, LOGOUT_ASYNC } from './action-types'
@@ -11,8 +12,10 @@ function* loginAsync({ payload }: any) {
     const { email, password, remember } = payload
     const user = users.find(user => user.email == email)
 
-    if(!user) throw 'Invalid user'
-    if(user.password != password) throw 'Invalid password'
+    if(!user) throw 'Correo invalido'
+    if(user.password != password) throw 'Contraseña invalida'
+
+    message.success('Autenticado con exito', 5)
 
     yield call(getCommunesAsync)
 
@@ -25,7 +28,7 @@ function* loginAsync({ payload }: any) {
     yield call(getCouriersAsync)
 
   } catch (error) {
-		console.log(error)
+		message.error(error, 5)
   }
 }
 

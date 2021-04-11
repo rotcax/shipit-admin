@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 import { login } from '@store/actions'
 import Head from 'next/head'
 import styles from '@styles/Login.module.scss'
+import wrapper from '@store'
 
 const layout = {
   labelCol: { span: 5 },
@@ -26,7 +27,6 @@ const Login: FC = () => {
 
   const onFinish = (values: any) => {
     dispatch(login(values))
-    message.success('Autenticado con exito', 5)
   }
 
   const onFinishFailed = (errorInfo: any) => {
@@ -53,7 +53,7 @@ const Login: FC = () => {
                   onFinishFailed={onFinishFailed}
                 >
                   <Form.Item
-                    label="Username"
+                    label="Email"
                     name="email"
                     rules={[{ required: true, message: 'Please input your username!' }]}
                   >
@@ -61,7 +61,7 @@ const Login: FC = () => {
                   </Form.Item>
 
                   <Form.Item
-                    label="Password"
+                    label="Contraseña"
                     name="password"
                     rules={[{ required: true, message: 'Please input your password!' }]}
                   >
@@ -69,7 +69,7 @@ const Login: FC = () => {
                   </Form.Item>
 
                   <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-                    <Checkbox>Remember me</Checkbox>
+                    <Checkbox>Recordar</Checkbox>
                   </Form.Item>
 
                   <Form.Item {...tailLayout}>
