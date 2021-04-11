@@ -1,4 +1,5 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects'
+import { message } from 'antd';
 import { actionObject, fetchService } from '@utils';
 import { communes } from '@utils/path';
 import { GET_COMMUNES, GET_COMMUNES_ASYNC } from './action-types';
@@ -32,7 +33,7 @@ export function* getCommunesAsync() {
     yield put(actionObject(GET_COMMUNES_ASYNC, { communes: currentCommunes }))
 
   } catch (error) {
-		console.log(error);
+		message.error(error, 5)
   }
 }
 

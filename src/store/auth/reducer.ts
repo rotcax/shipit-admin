@@ -5,7 +5,8 @@ import { LOGIN_ASYNC, LOGOUT_ASYNC } from './action-types'
 const initialState: AuthState = {
   email: '',
   accessToken: null,
-  hasRemember: false
+  hasRemember: false,
+  isAuth: false
 }
 
 const reducer = (state = initialState, { type, payload }: AnyAction) => {

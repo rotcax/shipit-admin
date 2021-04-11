@@ -5,7 +5,6 @@ import { useRouter } from 'next/router'
 import { login } from '@store/actions'
 import Head from 'next/head'
 import styles from '@styles/Login.module.scss'
-import wrapper from '@store'
 
 const layout = {
   labelCol: { span: 5 },
@@ -17,13 +16,13 @@ const tailLayout = {
 }
 
 const Login: FC = () => {
-  const { email, hasRemember, accessToken } = useSelector((state: any) => state.auth)
+  const { email, hasRemember, isAuth } = useSelector((state: any) => state.auth)
   const dispatch = useDispatch()
   const router = useRouter()
 
   useEffect(() => {
-    if(accessToken) router.push('/')
-  }, [accessToken])
+    if(isAuth) router.push('/')
+  }, [isAuth])
 
   const onFinish = (values: any) => {
     dispatch(login(values))
@@ -41,7 +40,7 @@ const Login: FC = () => {
       </Head>
 
       {
-        accessToken ? <p>Redirecting...</p> : (
+        isAuth ? <p>Redirecting...</p> : (
           <div className={styles.container}>
             <div className={`site-card-border-less-wrapper ${styles.card_container}`}>
               <Card title="Login" bordered={true}>

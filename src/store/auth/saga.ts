@@ -24,6 +24,11 @@ function* loginAsync({ payload }: any) {
     }))
 
     yield call(getCouriersAsync)
+
+    yield put(actionObject(LOGIN_ASYNC, {
+      isAuth: true
+    }))
+
     yield call(getCommunesAsync)
 
   } catch (error) {
@@ -42,11 +47,12 @@ function* logoutAsync() {
 
     yield put(actionObject(LOGOUT_ASYNC, {
       email: currentEmail,
-      accessToken: currentIsAuth
+      accessToken: currentIsAuth,
+      isAuth: false
     }))
 
   } catch (error) {
-		console.log(error)
+		message.error(error, 5)
   }
 }
 

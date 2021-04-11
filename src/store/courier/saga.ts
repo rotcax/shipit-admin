@@ -1,4 +1,5 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects'
+import { message } from 'antd';
 import { actionObject, fetchService } from '@utils';
 import { couriers } from '@utils/path';
 import { GET_COURIERS, GET_COURIERS_ASYNC } from './action-types';
@@ -12,7 +13,7 @@ export function* getCouriersAsync() {
     yield put(actionObject(GET_COURIERS_ASYNC, { couriers: response }))
 
   } catch (error) {
-		console.log(error);
+		message.error(error, 5)
   }
 }
 
