@@ -15,13 +15,14 @@ function* loginAsync({ payload }: any) {
     if(user.password != password) throw 'Invalid password'
 
     yield call(getCommunesAsync)
-    yield call(getCouriersAsync)
 
     yield put(actionObject(LOGIN_ASYNC, {
       hasRemember: remember,
       accessToken: user.accessToken,
       email: user.email
     }))
+
+    yield call(getCouriersAsync)
 
   } catch (error) {
 		console.log(error)

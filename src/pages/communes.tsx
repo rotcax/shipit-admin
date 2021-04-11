@@ -4,6 +4,7 @@ import { Table } from 'antd';
 import { HomeLayout } from '@components'
 import Head from 'next/head'
 import styles from '@styles/Home.module.scss'
+import Image from 'next/image'
 
 const columns = [
   {
@@ -16,8 +17,66 @@ const columns = [
   }
 ]
 
+const RowContent = ({ record, couriers }) => {
+  console.log(record.couriers_availables);
+  console.log(couriers);
+
+  return (
+    <div>
+      <p style={{ fontWeight: 'bold' }}>Couriers disponibles</p>
+      <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+        <Image
+          src={'https://couriers.s3-us-west-2.amazonaws.com/shippify.png'}
+          alt={'Shippify'}
+          width={100}
+          height={50}
+        />
+        <Image
+          src={'https://s3-us-west-2.amazonaws.com/couriers-shipit/chilexpress.png'}
+          alt={'Shippify'}
+          width={100}
+          height={50}
+        />
+        <Image
+          src={'https://s3-us-west-2.amazonaws.com/couriers-shipit/starken.png'}
+          alt={'Shippify'}
+          width={100}
+          height={50}
+        />
+        <Image
+          src={'https://s3-us-west-2.amazonaws.com/couriers-shipit/99minutos.png'}
+          alt={'Shippify'}
+          width={100}
+          height={50}
+        />
+        <Image
+          src={'https://s3-us-west-2.amazonaws.com/couriers-shipit/chileparcels.png'}
+          alt={'Shippify'}
+          width={100}
+          height={50}
+        />
+        <Image
+          src={'https://couriers.s3-us-west-2.amazonaws.com/motopartner.png'}
+          alt={'Shippify'}
+          width={100}
+          height={50}
+        />
+        <Image
+          src={'https://s3-us-west-2.amazonaws.com/couriers-shipit/bluexpress.png'}
+          alt={'Shippify'}
+          width={100}
+          height={50}
+        />
+      </div>
+    </div>
+  )
+}
+
 const Communes: FC = () => {
-  const { communes } = useSelector((state: any) => state.commune)
+  const {
+    commune: { communes },
+    courier: { couriers }
+  } = useSelector((state: any) => state)
 
   return (
     <>
@@ -30,9 +89,13 @@ const Communes: FC = () => {
         <div>
           <Table
             rowKey={record => record.id}
-            dataSource={communes}
             columns={columns}
             pagination={{ defaultPageSize: 15 }}
+            expandable={{
+              expandedRowRender: record => <RowContent record={record} couriers={couriers} />,
+              rowExpandable: record => record.name !== 'Not Expandable',
+            }}
+            dataSource={communes}
           />
         </div>
       </HomeLayout>
