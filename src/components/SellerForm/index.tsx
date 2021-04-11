@@ -14,7 +14,7 @@ const SellerForm = () => {
 
       <Col span={12}>
         <Form.Item
-          name="id"
+          name="seller_id"
           label="ID de la venta"
         >
           <Input placeholder="placeholder" />
