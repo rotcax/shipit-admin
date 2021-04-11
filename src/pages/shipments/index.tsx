@@ -1,40 +1,21 @@
 import { FC, useState } from 'react'
 import { Steps, Button, Form } from 'antd'
-import { HomeLayout, DestinyForm, SizesForm, SellerForm, CourierForm, InsuranceForm } from '@components'
-import { createShipment } from '@store/actions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
+import { HomeLayout } from '@components'
+import { steps, currentAction } from './elements'
+import {
+  createShipment,
+  setDestinyValues,
+  setSellerValues,
+  setSizesValues,
+  setCourierValues,
+  setInsuranceValues
+} from '@store/actions'
 import Head from 'next/head'
 import styles from '@styles/Quotes.module.scss'
 
 const { Step } = Steps
-
-const steps = [
-  {
-    title: 'Destino',
-    content: <DestinyForm />,
-  },
-  {
-    title: 'Medidas',
-    content: <SizesForm />,
-  },
-  {
-    title: 'Vendedor',
-    content: <SellerForm />,
-  },
-  {
-    title: 'Courier',
-    content: <CourierForm />,
-  },
-  {
-    title: 'Seguro',
-    content: <InsuranceForm />,
-  },
-  {
-    title: 'Finalizar',
-    content: null,
-  }
-]
 
 const Shipments: FC = () => {
   const [current, setCurrent] = useState(0)
@@ -50,18 +31,14 @@ const Shipments: FC = () => {
   const dispatch = useDispatch()
   const router = useRouter()
 
-  const next = () => {
-    console.log(current);
-
-    form.submit()
-    setCurrent(current + 1)
-  }
-
+  const next = () => form.submit()
   const prev = () => setCurrent(current - 1)
 
   const onFinish = (values: any) => {
     console.log(values);
-    // setCurrent(current + 1)
+
+    dispatch(currentAction(current)(values))
+    setCurrent(current + 1)
   }
 
   return (
