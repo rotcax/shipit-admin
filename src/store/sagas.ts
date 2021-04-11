@@ -4,6 +4,7 @@ import { watchGetCommunes } from './commune/saga'
 import { watchGetCouriers } from './courier/saga'
 import { watchGetOrigins } from './origin/saga'
 import { watchCreateRate } from './rate/saga'
+import { watchCreateShipment } from './shipment/saga'
 
 function* sagas() {
   yield all([
@@ -12,7 +13,8 @@ function* sagas() {
     fork(watchGetCommunes),
     fork(watchGetCouriers),
     fork(watchGetOrigins),
-    fork(watchCreateRate)
+    fork(watchCreateRate),
+    fork(watchCreateShipment)
   ])
 }
 
