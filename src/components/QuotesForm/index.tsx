@@ -15,6 +15,7 @@ const QuotesForm = () => {
           rules={[
             {
               required: true,
+              pattern: new RegExp(/\d+/g),
               message: 'Input something!',
             },
           ]}
@@ -30,6 +31,7 @@ const QuotesForm = () => {
           rules={[
             {
               required: true,
+              pattern: new RegExp(/\d+/g),
               message: 'Input something!',
             },
           ]}
@@ -45,6 +47,7 @@ const QuotesForm = () => {
           rules={[
             {
               required: true,
+              pattern: new RegExp(/\d+/g),
               message: 'Input something!',
             },
           ]}
@@ -60,6 +63,7 @@ const QuotesForm = () => {
           rules={[
             {
               required: true,
+              pattern: new RegExp(/\d+/g),
               message: 'Input something!',
             },
           ]}
