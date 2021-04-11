@@ -1,8 +1,8 @@
 import { FC, useState } from 'react'
 import { Steps, Button, Form } from 'antd'
-import { HomeLayout } from '@components'
+import { HomeLayout, DestinyForm, SizesForm, SellerForm } from '@components'
 import { createShipment } from '@store/actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import styles from '@styles/Quotes.module.scss'
@@ -12,15 +12,15 @@ const { Step } = Steps
 const steps = [
   {
     title: 'Destino',
-    content: null,
+    content: <DestinyForm />,
   },
   {
     title: 'Medidas',
-    content: null,
+    content: <SizesForm />,
   },
   {
     title: 'Vendedor',
-    content: null,
+    content: <SellerForm />,
   },
   {
     title: 'Courier',
@@ -35,17 +35,27 @@ const steps = [
 const Shipments: FC = () => {
   const [current, setCurrent] = useState(0)
   const [form] = Form.useForm()
+  const { currentForm } = useSelector((state: any) => state.shipment)
+
+  const initialValues = {
+    ...currentForm.courier,
+    ...currentForm.destiny,
+    ...currentForm.sizes
+  }
 
   const dispatch = useDispatch()
   const router = useRouter()
 
-  const send = () => form.submit()
-  const next = () => setCurrent(current + 1)
+  const next = () => {
+    form.submit()
+    setCurrent(current + 1)
+  }
+
   const prev = () => setCurrent(current - 1)
 
   const onFinish = (values: any) => {
     console.log(values);
-    setCurrent(current + 1)
+    // setCurrent(current + 1)
   }
 
   return (
@@ -66,6 +76,7 @@ const Shipments: FC = () => {
             form={form}
             name="advanced_search"
             onFinish={onFinish}
+            initialValues={initialValues}
           >
             <div className={styles.steps_content}>
               {steps[current].content}
@@ -73,7 +84,7 @@ const Shipments: FC = () => {
             <div className={styles.steps_action}>
               {current < steps.length - 1 && (
                 <Button type="primary" onClick={() => next()}>
-                  Next
+                  Siguiente
                 </Button>
               )}
               {current === steps.length - 1 && (

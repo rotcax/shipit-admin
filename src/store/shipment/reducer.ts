@@ -4,7 +4,7 @@ import { LOGOUT } from '../auth/action-types';
 
 const initialState = {
   result: null,
-  form: {
+  currentForm: {
     sizes: {},
     courier: {},
     destiny: {}
