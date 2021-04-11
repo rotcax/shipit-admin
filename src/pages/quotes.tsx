@@ -1,97 +1,11 @@
 import { FC, useEffect, useState } from 'react'
-import { HomeLayout } from '@components'
+import { HomeLayout, QuotesForm } from '@components'
 import Head from 'next/head'
 import styles from '@styles/Quotes.module.scss'
 
-import { Steps, Button, message, Row, Col, Form, Input, Select } from 'antd';
-import { useSelector } from 'react-redux';
-const { Step } = Steps;
-const { Option } = Select;
+import { Steps, Button, message, Form } from 'antd'
 
-const QuotesForm = () => {
-  const { communes } = useSelector((state: any) => state.commune)
-
-  return (
-    <Row gutter={24}>
-      <Col span={8}>
-        <Form.Item
-          name="height"
-          label="Alto"
-          rules={[
-            {
-              required: true,
-              message: 'Input something!',
-            },
-          ]}
-        >
-          <Input placeholder="placeholder" />
-        </Form.Item>
-      </Col>
-
-      <Col span={8}>
-        <Form.Item
-          name="width"
-          label="Ancho"
-          rules={[
-            {
-              required: true,
-              message: 'Input something!',
-            },
-          ]}
-        >
-          <Input placeholder="placeholder" />
-        </Form.Item>
-      </Col>
-
-      <Col span={8}>
-        <Form.Item
-          name="length"
-          label="Largo"
-          rules={[
-            {
-              required: true,
-              message: 'Input something!',
-            },
-          ]}
-        >
-          <Input placeholder="placeholder" />
-        </Form.Item>
-      </Col>
-
-      <Col span={8}>
-        <Form.Item
-          name="weight"
-          label="Peso"
-          rules={[
-            {
-              required: true,
-              message: 'Input something!',
-            },
-          ]}
-        >
-          <Input placeholder="placeholder" />
-        </Form.Item>
-      </Col>
-
-      <Col span={8}>
-        <Form.Item
-          name="destiny_id"
-          label="Destino"
-          rules={[{ required: true, message: 'Province is required' }]}
-        >
-          <Select placeholder="Destino">
-            {
-              communes.map((commune, index) => (
-                <Option key={index} value={commune.id}>{commune.name}</Option>
-              ))
-            }
-          </Select>
-        </Form.Item>
-      </Col>
-    </Row>
-  )
-}
-
+const { Step } = Steps
 
 const steps = [
   {
@@ -106,31 +20,31 @@ const steps = [
     title: 'Last',
     content: 'Last-content',
   },
-];
+]
 
 const Quotes: FC = () => {
-  const [current, setCurrent] = useState(0);
-  const [form] = Form.useForm();
+  const [current, setCurrent] = useState(0)
+  const [form] = Form.useForm()
 
   useEffect(() => {
     if (0) setCurrent(current + 1)
   }, [])
 
   const send = () => {
-    form.submit();
-  };
+    form.submit()
+  }
 
   const next = () => {
-    setCurrent(current + 1);
+    setCurrent(current + 1)
   }
 
   const prev = () => {
-    setCurrent(current - 1);
-  };
+    setCurrent(current - 1)
+  }
 
   const onFinish = (values: any) => {
-    console.log('Received values of form: ', values);
-  };
+    console.log('Received values of form: ', values)
+  }
 
   return (
     <>
