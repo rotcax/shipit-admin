@@ -17,8 +17,6 @@ function* loginAsync({ payload }: any) {
 
     message.success('Autenticado con exito', 5)
 
-    yield call(getCommunesAsync)
-
     yield put(actionObject(LOGIN_ASYNC, {
       hasRemember: remember,
       accessToken: user.accessToken,
@@ -26,6 +24,7 @@ function* loginAsync({ payload }: any) {
     }))
 
     yield call(getCouriersAsync)
+    yield call(getCommunesAsync)
 
   } catch (error) {
 		message.error(error, 5)
