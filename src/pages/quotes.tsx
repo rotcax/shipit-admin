@@ -1,11 +1,11 @@
 import { FC, useState } from 'react'
+import { Steps, Button, Form } from 'antd'
 import { HomeLayout, QuotesForm, BetterCourier } from '@components'
 import { createRate } from '@store/actions'
 import { useDispatch } from 'react-redux'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 import styles from '@styles/Quotes.module.scss'
-
-import { Steps, Button, message, Form } from 'antd'
 
 const { Step } = Steps
 
@@ -25,18 +25,11 @@ const Quotes: FC = () => {
   const [form] = Form.useForm()
 
   const dispatch = useDispatch()
+  const router = useRouter()
 
-  const send = () => {
-    form.submit()
-  }
-
-  const next = () => {
-    setCurrent(current + 1)
-  }
-
-  const prev = () => {
-    setCurrent(current - 1)
-  }
+  const send = () => form.submit()
+  const next = () => setCurrent(current + 1)
+  const prev = () => setCurrent(current - 1)
 
   const onFinish = (values: any) => {
     dispatch(createRate(values))
@@ -77,7 +70,7 @@ const Quotes: FC = () => {
                 </Button>
               )}
               {current === steps.length - 1 && (
-                <Button type="primary" onClick={() => message.success('Processing complete!')}>
+                <Button type="primary" onClick={() => router.push('shipments')}>
                   Crear un envio
                 </Button>
               )}
