@@ -62,3 +62,11 @@ Note:
 - For use application write following information
 > email: prueba_front@shipit.cl
 > password : 12345678
+
+### Extras ⚙️
+
+Environment variables can be created within the application, copy the contents of the .env.local.example file and start setting the variables
+
+  ```sh
+   $ cp .env.local.example .env.local
+   ```
