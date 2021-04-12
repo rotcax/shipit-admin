@@ -4,6 +4,7 @@ import SizesForm from '../SizesForm'
 import SellerForm from '../SellerForm'
 import CourierForm from '../CourierForm'
 import InsuranceForm from '../InsuranceForm'
+import ShipmentResume from '../ShipmentResume'
 import {
   setDestinyValues,
   setSellerValues,
@@ -36,7 +37,7 @@ export const steps = [
   },
   {
     title: 'Finalizar',
-    content: null,
+    content: <ShipmentResume />,
   }
 ]
 
