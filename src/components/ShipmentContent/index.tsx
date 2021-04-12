@@ -3,7 +3,7 @@ import { Steps, Button, Form, message } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
 import { steps, currentAction } from './elements'
 import { createShipment } from '@store/actions'
-import styles from '@styles/Quotes.module.scss'
+import styles from './styles.module.scss'
 
 const { Step } = Steps
 
@@ -44,7 +44,7 @@ const ShipmentContent: FC = () => {
   }
 
   return (
-    <div style={{ height: '100vh' }}>
+    <div className={styles.container}>
       <Steps current={current}>
         {steps.map(item => (
           <Step key={item.title} title={item.title} />
@@ -52,7 +52,7 @@ const ShipmentContent: FC = () => {
       </Steps>
       <Form
         form={form}
-        name="advanced_search"
+        name="shipment_form"
         onFinish={onFinish}
         initialValues={initialValues}
       >
@@ -71,7 +71,7 @@ const ShipmentContent: FC = () => {
             </Button>
           )}
           {current > 0 && (
-            <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
+            <Button className={styles.button_space} onClick={() => prev()}>
               Volver
             </Button>
           )}
@@ -79,7 +79,7 @@ const ShipmentContent: FC = () => {
         {
           initialValues?.commune_id && current == 0 ? (
             <>
-              <div style={{ paddingTop: 40 }}>
+              <div className={styles.space}>
                 Guardamos los resultados de tu cotizacion 😊
               </div>
               <div>

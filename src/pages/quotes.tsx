@@ -54,7 +54,7 @@ const Quotes: FC = () => {
       </Head>
 
       <HomeLayout>
-        <div style={{ height: '100vh' }}>
+        <div className={styles.container}>
           <Steps current={current}>
             {steps.map(item => (
               <Step key={item.title} title={item.title} />
@@ -62,7 +62,7 @@ const Quotes: FC = () => {
           </Steps>
           <Form
             form={form}
-            name="advanced_search"
+            name="quotes_form"
             onFinish={onFinish}
           >
             <div className={styles.steps_content}>
@@ -80,7 +80,7 @@ const Quotes: FC = () => {
                 </Button>
               )}
               {current > 0 && (
-                <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
+                <Button className={styles.button_space} onClick={() => prev()}>
                   Volver
                 </Button>
               )}

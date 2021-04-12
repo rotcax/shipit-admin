@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux'
 import { Form, Select } from 'antd'
+import styles from './styles.module.scss'
 
 const { Option } = Select
 
@@ -7,9 +8,9 @@ const CourierForm = () => {
   const { couriers } = useSelector((state: any) => state.courier)
 
   return (
-    <div style={{ display: 'flex', width: '100%' }}>
+    <div className={styles.container}>
       <Form.Item
-        style={{ width: '30%' }}
+        className={styles.space}
         name="client"
         label="Courier"
         rules={[{ required: true, message: 'El campo es requerido' }]}

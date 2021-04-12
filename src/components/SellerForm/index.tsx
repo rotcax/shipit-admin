@@ -1,12 +1,13 @@
 import { Form, Input, Select } from 'antd'
+import styles from './styles.module.scss'
 
 const { Option } = Select
 
 const SellerForm = () => {
   return (
-    <div style={{ display: 'flex', width: '100%' }}>
+    <div className={styles.container}>
       <Form.Item
-        style={{ width: '40%', marginRight: 30 }}
+        className={styles.item_one}
         name="name"
         label="Nombre del e-commerce"
       >
@@ -18,7 +19,7 @@ const SellerForm = () => {
       </Form.Item>
 
       <Form.Item
-        style={{ width: '40%' }}
+        className={styles.item_two}
         name="seller_id"
         label="ID de la venta"
       >

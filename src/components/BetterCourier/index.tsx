@@ -84,7 +84,7 @@ const BetterCourier = () => {
             </div>
           </div>
         ) : (
-          <div>No existen precios bajo los parametros enviados</div>
+          <div>No existen precios bajos los parametros enviados</div>
         )
       }
     </>

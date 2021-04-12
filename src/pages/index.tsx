@@ -14,7 +14,7 @@ const Home: FC = () => {
       </Head>
 
       <HomeLayout>
-        <div style={{ height: '100vh' }}>
+        <div className={styles.layout}>
           <div className={styles.container}>
             <div className={styles.sub_container}>
               <Link href="/communes">

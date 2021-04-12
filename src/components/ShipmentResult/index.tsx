@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { Button } from 'antd'
 import { clearShipmentForm } from '@store/actions'
+import styles from './styles.module.scss'
 
 const ShipmentResult = () => {
   const { result } = useSelector((state: any) => state.shipment)
@@ -14,15 +15,15 @@ const ShipmentResult = () => {
   }
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+    <div className={styles.container}>
       {
         result?.id ? (
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div className={styles.success_message}>
             <div>
-              Su pedido <span style={{ fontWeight: 'bold' }}>{result.id}</span> fue creado con exito.
-              Referencia: <span style={{ fontWeight: 'bold' }}>{result.reference}</span>
+              Su pedido <span className={styles.bold_title}>{result.id}</span> fue creado con exito.
+              Referencia: <span className={styles.bold_title}>{result.reference}</span>
             </div>
-            <div style={{ marginTop: 20 }}>
+            <div className={styles.separation}>
               <Button type="link" onClick={() => finish()}>Volver a inicio</Button>
             </div>
           </div>
