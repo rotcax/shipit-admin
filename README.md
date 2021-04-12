@@ -1,34 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Shippit Admin
 
-## Getting Started
+Application to display shipping quotes of an ecommerce. 🚛
 
-First, run the development server:
+### Pre-requisites
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+In order to use this software on your workstation, you must meet the following requirements:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js LTS v14.15+
+  > Type in your console `node -v` and check your current version. In the absence of its installation, enter the [following link](https://nodejs.org/en/download/).
+- Yarn v1.22.5+
+  > Type in your console `yarn -v` and check your current version. In the absence of its installation, enter the [following link](https://yarnpkg.com/getting-started/install#global-install).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Note:
+  > This project can be run with or without [Docker](https://www.docker.com/)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Run App without Docker
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. Clone the repository.
+   ```sh
+   $ git clone https://github.com/rotcax/shipit-admin.git
+   ```
+2. Onto to the downloaded repository folder.
+   ```sh
+   $ cd shippit-admin
+   ```
+3. Install all dependencies.
+   ```sh
+   $ yarn
+   ```
+4. Run the application.
+   ```sh
+   $ yarn dev
+   ```
 
-## Learn More
+### Run App with Docker 🐋
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone the repository.
+   ```sh
+   $ git clone https://github.com/rotcax/shipit-admin.git
+   ```
+2. Onto to the downloaded repository folder.
+   ```sh
+   $ cd shippit-admin
+   ```
+3. Grant file permissions (only linux or osx).
+   ```sh
+   $ chmod +x run-image.sh
+   ```
+4. Run image.
+   ```sh
+   $ ./run-image.sh
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### CI/CD with Vercel 🎉🎉
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+  > https://shipit-admin.vercel.app/
