@@ -55,3 +55,10 @@ Note:
 ### CI/CD with Vercel 🎉🎉
 
   > https://shipit-admin.vercel.app/
+
+
+### Use Applicaction
+
+- For use application write following information
+> email: prueba_front@shipit.cl
+> password : 12345678
