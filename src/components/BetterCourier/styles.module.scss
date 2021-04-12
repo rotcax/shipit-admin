@@ -1,0 +1,19 @@
+.container {
+  @include commonFlex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.column {
+  width: 25%;
+}
+
+.list {
+  @include commonFlex;
+  margin-bottom: 20;
+  padding: 20;
+}
+
+@mixin commonFlex {
+  display: flex;
+}

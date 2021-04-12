@@ -1,12 +1,13 @@
 import { FC } from 'react'
 import { useSelector } from 'react-redux'
-import { Table } from 'antd';
+import { Table } from 'antd'
 import { HomeLayout } from '@components'
+import { ColumsProps, RowContentProps } from '@types'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '@styles/Communes.module.scss'
 
-const columns = [
+const columns: Array<ColumsProps> = [
   {
     title: 'Nombre de la comuna',
     dataIndex: 'name'
@@ -17,12 +18,13 @@ const columns = [
   }
 ]
 
-const RowContent = ({ record }) => {
+const RowContent: FC<RowContentProps> = ({ record }) => {
   const currentCouriers = record.currentCouriers
+
   return (
     <div>
-      <p style={{ fontWeight: 'bold' }}>Couriers disponibles</p>
-      <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+      <p className={styles.title}>Couriers disponibles</p>
+      <div className={styles.courier_container}>
         {
           currentCouriers.length ? (
             currentCouriers.map((commune, index) => (

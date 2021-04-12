@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux'
 import Image from 'next/image'
+import styles from './styles.module.scss'
 
 const BetterCourier = () => {
   const {
@@ -13,15 +14,15 @@ const BetterCourier = () => {
     <>
       {
         betterPrice ? (
-          <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
+          <div className={styles.container}>
             <div>
               {
                 betterPrice?.prices?.map((courier, index) => {
                   const imageUrl = couriers.find(current => current.name.toLowerCase() == courier.original_courier)?.image_original_url
 
                   return (
-                    <div key={index} style={{ display: 'flex', marginBottom: 20, padding: 20 }}>
-                      <div style={{ width: '25%' }}>
+                    <div key={index} className={styles.list}>
+                      <div className={styles.column}>
                         {
                           imageUrl ? (
                             <Image
@@ -37,13 +38,13 @@ const BetterCourier = () => {
                           )
                         }
                       </div>
-                      <div style={{ width: '25%' }}>
+                      <div className={styles.column}>
                         Precio: {courier.price}
                       </div>
-                      <div style={{ width: '25%' }}>
+                      <div className={styles.column}>
                         Peso equivalente: {courier.volumetric_weight}
                       </div>
-                      <div style={{ width: '25%' }}>
+                      <div className={styles.column}>
                         Plazo estimado: {courier.days}
                       </div>
                     </div>
@@ -54,7 +55,7 @@ const BetterCourier = () => {
             <div style={{ backgroundColor: '#f6ffed', border: '1px solid #b7eb8f', padding: 20 }}>
               <p style={{ fontWeight: 'bold' }}>Mejor precio</p>
               <div style={{ display: 'flex' }}>
-                <div style={{ width: '25%' }}>
+                <div className={styles.column}>
                   {
                     imageUrlForBetterPrice ? (
                       <Image
@@ -70,13 +71,13 @@ const BetterCourier = () => {
                     )
                   }
                 </div>
-                <div style={{ width: '25%' }}>
+                <div className={styles.column}>
                   Precio: {betterPrice.lower_price.price}
                 </div>
-                <div style={{ width: '25%' }}>
+                <div className={styles.column}>
                   Peso equivalente: {betterPrice.lower_price.volumetric_weight}
                 </div>
-                <div style={{ width: '25%' }}>
+                <div className={styles.column}>
                   Plazo estimado: {betterPrice.lower_price.days}
                 </div>
               </div>

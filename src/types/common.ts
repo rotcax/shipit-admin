@@ -9,3 +9,12 @@ export type CredentialsProps = {
 export type HomeLayoutProps = {
   children: ReactElement
 }
+
+export type ColumsProps = {
+  title: string
+  dataIndex: string | Array<string>
+}
+
+export type RowContentProps = {
+  record: any
+}
