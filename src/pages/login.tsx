@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Form, Input, Button, Checkbox, Card } from 'antd'
+import { Form, Input, Button, Card } from 'antd'
 import { useRouter } from 'next/router'
 import { login } from '@store/actions'
 import Head from 'next/head'
@@ -65,10 +65,6 @@ const Login: FC = () => {
                   >
                     <Input.Password />
                   </Form.Item>
-
-                  {/* <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-                    <Checkbox>Recordar</Checkbox>
-                  </Form.Item> */}
 
                   <Form.Item {...tailLayout}>
                     <Button type="primary" htmlType="submit">
