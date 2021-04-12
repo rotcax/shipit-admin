@@ -11,11 +11,11 @@ const { Step } = Steps
 
 const steps = [
   {
-    title: 'First',
+    title: 'Medidas',
     content: <QuotesForm />,
   },
   {
-    title: 'Second',
+    title: 'Resultado',
     content: <BetterCourier />,
   }
 ]
