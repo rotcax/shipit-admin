@@ -12,7 +12,7 @@ const CourierForm = () => {
         style={{ width: '30%' }}
         name="client"
         label="Courier"
-        rules={[{ required: true, message: 'Province is required' }]}
+        rules={[{ required: true, message: 'El campo es requerido' }]}
       >
         <Select placeholder="Courier">
           {

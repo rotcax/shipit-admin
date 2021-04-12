@@ -22,7 +22,7 @@ const SellerForm = () => {
         name="seller_id"
         label="ID de la venta"
       >
-        <Input placeholder="placeholder" />
+        <Input placeholder="ID" />
       </Form.Item>
     </div>
   )

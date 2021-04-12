@@ -11,11 +11,11 @@ const SizesForm = () => {
             {
               required: true,
               pattern: new RegExp(/^\d+$/),
-              message: 'Input something!',
+              message: 'Ingrese un campo valido',
             },
           ]}
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Alto" />
         </Form.Item>
       </Col>
 
@@ -27,11 +27,11 @@ const SizesForm = () => {
             {
               required: true,
               pattern: new RegExp(/^\d+$/),
-              message: 'Input something!',
+              message: 'Ingrese un campo valido',
             },
           ]}
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Ancho" />
         </Form.Item>
       </Col>
 
@@ -43,11 +43,11 @@ const SizesForm = () => {
             {
               required: true,
               pattern: new RegExp(/^\d+$/),
-              message: 'Input something!',
+              message: 'Ingrese un campo valido',
             },
           ]}
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Largo" />
         </Form.Item>
       </Col>
 
@@ -59,11 +59,11 @@ const SizesForm = () => {
             {
               required: true,
               pattern: new RegExp(/^\d+$/),
-              message: 'Input something!',
+              message: 'Ingrese un campo valido',
             },
           ]}
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Peso" />
         </Form.Item>
       </Col>
 
@@ -75,11 +75,11 @@ const SizesForm = () => {
             {
               required: true,
               pattern: new RegExp(/^\d+$/),
-              message: 'Input something!',
+              message: 'Ingrese un campo valido',
             },
           ]}
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Cantidad" />
         </Form.Item>
       </Col>
     </Row>

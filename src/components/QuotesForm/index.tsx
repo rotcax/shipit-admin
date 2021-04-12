@@ -16,11 +16,11 @@ const QuotesForm = () => {
             {
               required: true,
               pattern: new RegExp(/^\d+$/),
-              message: 'Input something!',
+              message: 'Ingrese un campo valido',
             },
           ]}
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Alto" />
         </Form.Item>
       </Col>
 
@@ -32,11 +32,11 @@ const QuotesForm = () => {
             {
               required: true,
               pattern: new RegExp(/^\d+$/),
-              message: 'Input something!',
+              message: 'Ingrese un campo valido',
             },
           ]}
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Ancho" />
         </Form.Item>
       </Col>
 
@@ -48,11 +48,11 @@ const QuotesForm = () => {
             {
               required: true,
               pattern: new RegExp(/^\d+$/),
-              message: 'Input something!',
+              message: 'Ingrese un campo valido',
             },
           ]}
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Largo" />
         </Form.Item>
       </Col>
 
@@ -64,11 +64,11 @@ const QuotesForm = () => {
             {
               required: true,
               pattern: new RegExp(/^\d+$/),
-              message: 'Input something!',
+              message: 'Ingrese un campo valido',
             },
           ]}
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Peso" />
         </Form.Item>
       </Col>
 
@@ -76,7 +76,7 @@ const QuotesForm = () => {
         <Form.Item
           name="origin_id"
           label="Origen"
-          rules={[{ required: true, message: 'Province is required' }]}
+          rules={[{ required: true, message: 'El campo es requerido' }]}
         >
           <Select placeholder="Origen">
             {
@@ -92,7 +92,7 @@ const QuotesForm = () => {
         <Form.Item
           name="destiny_id"
           label="Destino"
-          rules={[{ required: true, message: 'Province is required' }]}
+          rules={[{ required: true, message: 'El campo es requerido' }]}
         >
           <Select placeholder="Destino">
             {

@@ -10,7 +10,7 @@ const InsuranceForm = () => {
           name="ticket_amount"
           label="Nro. Boleta de venta"
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Nro. Boleta" />
         </Form.Item>
       </Col>
 
@@ -19,7 +19,7 @@ const InsuranceForm = () => {
           name="ticket_number"
           label="Valor de los productos"
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Valor total" />
         </Form.Item>
       </Col>
 
@@ -28,7 +28,7 @@ const InsuranceForm = () => {
           name="detail"
           label="Detalles"
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Detalles" />
         </Form.Item>
       </Col>
 

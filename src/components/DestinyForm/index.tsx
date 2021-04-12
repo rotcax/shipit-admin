@@ -17,11 +17,11 @@ const DestinyForm = () => {
           rules={[
             {
               required: true,
-              message: 'Input something!',
+              message: 'Ingrese un campo valido',
             },
           ]}
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Calle" />
         </Form.Item>
       </Col>
 
@@ -32,11 +32,11 @@ const DestinyForm = () => {
           rules={[
             {
               required: true,
-              message: 'Input something!',
+              message: 'Ingrese un campo valido',
             },
           ]}
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Nro. Calle" />
         </Form.Item>
       </Col>
 
@@ -44,7 +44,7 @@ const DestinyForm = () => {
         <Form.Item
           name="commune_id"
           label="Comuna"
-          rules={[{ required: true, message: 'Province is required' }]}
+          rules={[{ required: true, message: 'El campo es requerido' }]}
         >
           <Select placeholder="Destino">
             {
@@ -61,7 +61,7 @@ const DestinyForm = () => {
           name="complement"
           label="Referencia"
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Referencia" />
         </Form.Item>
       </Col>
 
@@ -72,11 +72,11 @@ const DestinyForm = () => {
           rules={[
             {
               required: true,
-              message: 'Input something!',
+              message: 'Ingrese un campo valido',
             },
           ]}
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Nombre completo" />
         </Form.Item>
       </Col>
 
@@ -85,7 +85,7 @@ const DestinyForm = () => {
           name="email"
           label="Email de contacto"
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Email" />
         </Form.Item>
       </Col>
 
@@ -94,7 +94,7 @@ const DestinyForm = () => {
           name="phone"
           label="Telefono de contacto"
         >
-          <Input placeholder="placeholder" />
+          <Input placeholder="Telefono" />
         </Form.Item>
       </Col>
     </Row>

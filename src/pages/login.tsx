@@ -53,7 +53,7 @@ const Login: FC = () => {
                   <Form.Item
                     label="Email"
                     name="email"
-                    rules={[{ required: true, message: 'Please input your username!' }]}
+                    rules={[{ required: true, message: 'Debe ingresar un campo valido' }]}
                   >
                     <Input />
                   </Form.Item>
@@ -61,7 +61,7 @@ const Login: FC = () => {
                   <Form.Item
                     label="Contraseña"
                     name="password"
-                    rules={[{ required: true, message: 'Please input your password!' }]}
+                    rules={[{ required: true, message: 'Debe ingresar un campo valido' }]}
                   >
                     <Input.Password />
                   </Form.Item>

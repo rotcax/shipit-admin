@@ -52,9 +52,9 @@ const BetterCourier = () => {
                 })
               }
             </div>
-            <div style={{ backgroundColor: '#f6ffed', border: '1px solid #b7eb8f', padding: 20 }}>
-              <p style={{ fontWeight: 'bold' }}>Mejor precio</p>
-              <div style={{ display: 'flex' }}>
+            <div className={styles.better_price}>
+              <p className={styles.bold_title}>Mejor precio</p>
+              <div className={styles.flex}>
                 <div className={styles.column}>
                   {
                     imageUrlForBetterPrice ? (
