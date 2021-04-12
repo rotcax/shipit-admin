@@ -1,8 +1,9 @@
 import { AnyAction } from 'redux'
+import { RateState } from '@types'
 import { CREATE_RATE_ASYNC, CHANGE_RATE_DONE } from './action-types'
 import { LOGOUT } from '../auth/action-types'
 
-const initialState = {
+const initialState: RateState = {
   betterPrice: null,
   rateDone: false
 }

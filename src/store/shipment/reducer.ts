@@ -1,4 +1,5 @@
 import { AnyAction } from 'redux'
+import { ShipmentState } from '@types'
 import { LOGOUT } from '../auth/action-types'
 import {
   CLEAR_SHIPMENT_FORM,
@@ -12,7 +13,7 @@ import {
   CHANGE_SHIPMENT_DONE
 } from './action-types'
 
-const initialState = {
+const initialState: ShipmentState = {
   shipmentDone: false,
   result: null,
   currentForm: {

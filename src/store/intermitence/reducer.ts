@@ -1,8 +1,9 @@
 import { AnyAction } from 'redux'
+import { IntermitenceState } from '@types'
 import { SAVE_CURRENT_PATH } from './action-types'
 import { LOGOUT } from '../auth/action-types'
 
-const initialState = {
+const initialState: IntermitenceState = {
   currentPath: '/'
 }
 
