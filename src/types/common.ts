@@ -13,6 +13,7 @@ export type HomeLayoutProps = {
 export type ColumsProps = {
   title: string
   dataIndex: string | Array<string>
+  key: string
 }
 
 export type RowContentProps = {

@@ -1,9 +1,17 @@
-.title {
-  font-weight: bold;
+.container {
+  height: 1050px;
 }
 
-.courier_container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.input {
+  width: 188px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.button {
+  width: 90px;
+}
+
+.space {
+  padding: 8px;
 }
