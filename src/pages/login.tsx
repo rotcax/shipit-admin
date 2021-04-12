@@ -16,7 +16,11 @@ const tailLayout = {
 }
 
 const Login: FC = () => {
-  const { auth: {email, hasRemember, isAuth}, intermitence: { currentPath } } = useSelector((state: any) => state)
+  const {
+    auth: { email, hasRemember, isAuth },
+    intermitence: { currentPath }
+   } = useSelector((state: any) => state)
+
   const dispatch = useDispatch()
   const router = useRouter()
 
