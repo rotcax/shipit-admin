@@ -1,9 +1,9 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects'
-import { message } from 'antd';
-import { actionObject, fetchService } from '@utils';
-import { origins } from '@utils/path';
-import { GET_ORIGINS, GET_ORIGINS_ASYNC } from './action-types';
-import { getAuth } from '../selectors';
+import { message } from 'antd'
+import { actionObject, fetchService } from '@utils'
+import { origins } from '@utils/path'
+import { GET_ORIGINS, GET_ORIGINS_ASYNC } from './action-types'
+import { getAuth } from '../selectors'
 
 export function* getOriginsAsync() {
   try {
@@ -18,5 +18,5 @@ export function* getOriginsAsync() {
 }
 
 export function* watchGetOrigins() {
-  yield takeLatest(GET_ORIGINS, getOriginsAsync);
+  yield takeLatest(GET_ORIGINS, getOriginsAsync)
 }

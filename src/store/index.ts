@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from 'redux'
 import { HYDRATE, createWrapper } from 'next-redux-wrapper'
-import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
+import createWebStorage from 'redux-persist/lib/storage/createWebStorage'
 import createSagaMiddleware from 'redux-saga'
 import reducers from './reducers'
 import sagas from './sagas'
@@ -8,16 +8,16 @@ import sagas from './sagas'
 const createNoopStorage = () => {
   return {
     getItem(_key) {
-      return Promise.resolve(null);
+      return Promise.resolve(null)
     },
     setItem(_key, value) {
-      return Promise.resolve(value);
+      return Promise.resolve(value)
     },
     removeItem(_key) {
-      return Promise.resolve();
+      return Promise.resolve()
     },
-  };
-};
+  }
+}
 
 const bindMiddleware = (middleware) => {
   if (process.env.NODE_ENV !== 'production') {
@@ -39,7 +39,7 @@ const makeStore: any = ({ isServer }) => {
   if (isServer) return createStoreHook(reducer)
 
   const { persistStore, persistReducer } = require('redux-persist')
-  const storage = typeof window !== 'undefined' ? createWebStorage('local') : createNoopStorage();
+  const storage = typeof window !== 'undefined' ? createWebStorage('local') : createNoopStorage()
 
   const persistConfig = {
     key: 'shipitRoot',

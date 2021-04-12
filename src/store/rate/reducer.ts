@@ -1,6 +1,6 @@
 import { AnyAction } from 'redux'
 import { CREATE_RATE_ASYNC, CHANGE_RATE_DONE } from './action-types'
-import { LOGOUT } from '../auth/action-types';
+import { LOGOUT } from '../auth/action-types'
 
 const initialState = {
   betterPrice: null,

@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux'
-import { LOGOUT } from '../auth/action-types';
+import { LOGOUT } from '../auth/action-types'
 import {
   CLEAR_SHIPMENT_FORM,
   CREATE_SHIPMENT_ASYNC,

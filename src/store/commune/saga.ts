@@ -1,8 +1,8 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects'
-import { message } from 'antd';
-import { actionObject, fetchService } from '@utils';
-import { communes } from '@utils/path';
-import { GET_COMMUNES, GET_COMMUNES_ASYNC } from './action-types';
+import { message } from 'antd'
+import { actionObject, fetchService } from '@utils'
+import { communes } from '@utils/path'
+import { GET_COMMUNES, GET_COMMUNES_ASYNC } from './action-types'
 import { getCourier } from '../selectors'
 
 export function* getCommunesAsync() {
@@ -38,5 +38,5 @@ export function* getCommunesAsync() {
 }
 
 export function* watchGetCommunes() {
-  yield takeLatest(GET_COMMUNES, getCommunesAsync);
+  yield takeLatest(GET_COMMUNES, getCommunesAsync)
 }

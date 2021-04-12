@@ -1,7 +1,7 @@
 import { AnyAction } from 'redux'
-import { CouriersState } from '@types';
+import { CouriersState } from '@types'
 import { GET_COURIERS_ASYNC } from './action-types'
-import { LOGOUT } from '../auth/action-types';
+import { LOGOUT } from '../auth/action-types'
 
 const initialState: CouriersState = {
   couriers: []

@@ -1,7 +1,7 @@
 import { AnyAction } from 'redux'
-import { CommuneState } from '@types';
+import { CommuneState } from '@types'
 import { GET_COMMUNES_ASYNC } from './action-types'
-import { LOGOUT } from '../auth/action-types';
+import { LOGOUT } from '../auth/action-types'
 
 const initialState: CommuneState = {
   communes: []

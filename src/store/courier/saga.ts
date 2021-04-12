@@ -1,9 +1,9 @@
 import { takeLatest, call, put, select } from 'redux-saga/effects'
-import { message } from 'antd';
-import { actionObject, fetchService } from '@utils';
-import { couriers } from '@utils/path';
-import { GET_COURIERS, GET_COURIERS_ASYNC } from './action-types';
-import { getAuth } from '../selectors';
+import { message } from 'antd'
+import { actionObject, fetchService } from '@utils'
+import { couriers } from '@utils/path'
+import { GET_COURIERS, GET_COURIERS_ASYNC } from './action-types'
+import { getAuth } from '../selectors'
 
 export function* getCouriersAsync() {
   try {
@@ -18,5 +18,5 @@ export function* getCouriersAsync() {
 }
 
 export function* watchGetCouriers() {
-  yield takeLatest(GET_COURIERS, getCouriersAsync);
+  yield takeLatest(GET_COURIERS, getCouriersAsync)
 }

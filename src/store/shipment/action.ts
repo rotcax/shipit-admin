@@ -1,4 +1,4 @@
-import { actionObject } from '@utils';
+import { actionObject } from '@utils'
 import {
   CREATE_SHIPMENT,
   SET_COURIER_VALUES,

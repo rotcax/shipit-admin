@@ -1,6 +1,6 @@
 import { AnyAction } from 'redux'
 import { GET_ORIGINS_ASYNC } from './action-types'
-import { LOGOUT } from '../auth/action-types';
+import { LOGOUT } from '../auth/action-types'
 
 const initialState = {
   origins: []

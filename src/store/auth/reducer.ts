@@ -1,5 +1,5 @@
 import { AnyAction } from 'redux'
-import { AuthState } from '@types';
+import { AuthState } from '@types'
 import { LOGIN_ASYNC, LOGOUT_ASYNC } from './action-types'
 
 const initialState: AuthState = {

@@ -1,4 +1,4 @@
-import { Row, Col, Form, Input, Select } from 'antd'
+import { Row, Col, Form, Input } from 'antd'
 
 const SizesForm = () => {
   return (
