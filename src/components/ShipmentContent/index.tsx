@@ -76,6 +76,18 @@ const ShipmentContent: FC = () => {
             </Button>
           )}
         </div>
+        {
+          initialValues?.commune_id && current == 0 ? (
+            <>
+              <div style={{ paddingTop: 40 }}>
+                Guardamos los resultados de tu cotizacion 😊
+              </div>
+              <div>
+                Los mismos se pueden editar
+              </div>
+            </>
+          ) : null
+        }
       </Form>
     </div>
   )
