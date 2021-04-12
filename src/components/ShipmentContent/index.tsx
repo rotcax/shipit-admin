@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import { Steps, Button, Form, message } from 'antd'
 import { useDispatch, useSelector } from 'react-redux'
-import { useRouter } from 'next/router'
 import { steps, currentAction } from './elements'
 import { createShipment } from '@store/actions'
 import styles from '@styles/Quotes.module.scss'
@@ -10,14 +9,18 @@ const { Step } = Steps
 
 const ShipmentContent: FC = () => {
   const [current, setCurrent] = useState(0)
+  const [disabled, setDisabled] = useState(false)
+
   const [form] = Form.useForm()
   const { currentForm, shipmentDone } = useSelector((state: any) => state.shipment)
 
   const dispatch: any = useDispatch()
-  const router = useRouter()
 
   useEffect(() => {
-    if (shipmentDone) router.push('/')
+    if (shipmentDone) {
+      setCurrent(current + 1)
+      setDisabled(false)
+    }
   }, [shipmentDone])
 
   const initialValues = {
@@ -35,6 +38,7 @@ const ShipmentContent: FC = () => {
   }
 
   const createShipmentDone = () => {
+    setDisabled(true)
     dispatch(createShipment())
     message.info('Creando...', 0.5)
   }
@@ -56,13 +60,13 @@ const ShipmentContent: FC = () => {
           {steps[current].content}
         </div>
         <div className={styles.steps_action}>
-          {current < steps.length - 1 && (
+          {current < steps.length - 1 && current != 5 && (
             <Button type="primary" onClick={() => next()}>
               Siguiente
             </Button>
           )}
-          {current === steps.length - 1 && (
-            <Button type="primary" onClick={() => createShipmentDone()}>
+          {current === 5 && (
+            <Button type="primary" disabled={disabled} onClick={() => createShipmentDone()}>
               Crear envio
             </Button>
           )}

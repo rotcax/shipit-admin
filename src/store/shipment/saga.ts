@@ -42,7 +42,11 @@ export function* createShipmentAsync() {
     yield put(actionObject(CHANGE_SHIPMENT_DONE, { shipmentDone: false }))
 
   } catch (error) {
-		yield put(actionObject(CREATE_SHIPMENT_ASYNC, { result: null }))
+		yield put(actionObject(CREATE_SHIPMENT_ASYNC, {
+      result: error?.response?.data?.message,
+      shipmentDone: true
+    }))
+    yield put(actionObject(CHANGE_SHIPMENT_DONE, { shipmentDone: false }))
   }
 }
 
