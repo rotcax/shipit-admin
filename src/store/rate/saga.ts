@@ -2,7 +2,7 @@ import { takeLatest, call, put, select } from 'redux-saga/effects'
 import { AnyAction } from 'redux'
 import { actionObject, fetchService } from '@utils'
 import { rates } from '@utils/path'
-import { CREATE_RATE, CREATE_RATE_ASYNC } from './action-types'
+import { CHANGE_RATE_DONE, CREATE_RATE, CREATE_RATE_ASYNC } from './action-types'
 import { SET_SHIPMENT_VALUES } from '../shipment/action-types'
 import { getAuth, getCourier } from '../selectors'
 
@@ -17,7 +17,7 @@ export function* createRateAsync({ payload }: AnyAction) {
     }
 
 		const response = yield call(fetchService, rates, 'POST', { parcel }, { email, accessToken })
-    yield put(actionObject(CREATE_RATE_ASYNC, { betterPrice: response }))
+    yield put(actionObject(CREATE_RATE_ASYNC, { betterPrice: response, rateDone: true }))
 
     const { length, width, height, weight, destiny_id } = payload
     const { lower_price: { courier: { name } } } = response
@@ -38,8 +38,11 @@ export function* createRateAsync({ payload }: AnyAction) {
       destiny
     }))
 
+    yield put(actionObject(CHANGE_RATE_DONE, { rateDone: false }))
+
   } catch (error) {
-		yield put(actionObject(CREATE_RATE_ASYNC, { betterPrice: null }))
+    yield put(actionObject(CREATE_RATE_ASYNC, { betterPrice: null, rateDone: true }))
+    yield put(actionObject(CHANGE_RATE_DONE, { rateDone: false }))
   }
 }
 

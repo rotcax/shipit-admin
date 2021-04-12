@@ -1,8 +1,8 @@
-import { FC, useState } from 'react'
-import { Steps, Button, Form } from 'antd'
+import { FC, useEffect, useState } from 'react'
+import { Steps, Button, Form, message } from 'antd'
 import { HomeLayout, QuotesForm, BetterCourier } from '@components'
 import { createRate } from '@store/actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import Head from 'next/head'
 import styles from '@styles/Quotes.module.scss'
@@ -22,18 +22,28 @@ const steps = [
 
 const Quotes: FC = () => {
   const [current, setCurrent] = useState(0)
+  const [disabled, setDisabled] = useState(false)
   const [form] = Form.useForm()
+
+  const { rateDone } = useSelector((state: any) => state.rate)
+
+  useEffect(() => {
+    if (rateDone) {
+      setCurrent(current + 1)
+      setDisabled(false)
+    }
+  }, [rateDone])
 
   const dispatch = useDispatch()
   const router = useRouter()
 
   const send = () => form.submit()
-  const next = () => setCurrent(current + 1)
   const prev = () => setCurrent(current - 1)
 
   const onFinish = (values: any) => {
     dispatch(createRate(values))
-    setCurrent(current + 1)
+    setDisabled(true)
+    message.info('Consultando mejor precio...', 1)
   }
 
   return (
@@ -60,13 +70,8 @@ const Quotes: FC = () => {
             </div>
             <div className={styles.steps_action}>
               {current == 0 && (
-                <Button type="primary" onClick={() => send()}>
+                <Button type="primary" disabled={disabled} onClick={() => send()}>
                   Cotizar
-                </Button>
-              )}
-              {current != 0 && current < steps.length - 1 && (
-                <Button type="primary" onClick={() => next()}>
-                  Next
                 </Button>
               )}
               {current === steps.length - 1 && (

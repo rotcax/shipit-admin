@@ -14,8 +14,8 @@
 
 .list {
   @include commonFlex;
-  margin-bottom: 20;
-  padding: 20;
+  margin-bottom: 20px;
+  padding: 20px;
 }
 
 .flex {
@@ -25,9 +25,13 @@
 .better_price {
   background-color: #f6ffed;
   border: 1px solid #b7eb8f;
-  padding: 20;
+  padding: 20px;
 }
 
 .bold_title {
   font-weight: bold;
+}
+
+.list_separation {
+  margin-bottom: 25px;
 }

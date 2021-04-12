@@ -8,14 +8,14 @@ const BetterCourier = () => {
     courier: { couriers }
   } = useSelector((state: any) => state)
 
-  const imageUrlForBetterPrice = couriers.find(current => current.name.toLowerCase() == betterPrice.lower_price.original_courier)?.image_original_url
+  const imageUrlForBetterPrice = couriers.find(current => current.name.toLowerCase() == betterPrice?.lower_price.original_courier)?.image_original_url
 
   return (
     <>
       {
         betterPrice ? (
           <div className={styles.container}>
-            <div>
+            <div className={styles.list_separation}>
               {
                 betterPrice?.prices?.map((courier, index) => {
                   const imageUrl = couriers.find(current => current.name.toLowerCase() == courier.original_courier)?.image_original_url

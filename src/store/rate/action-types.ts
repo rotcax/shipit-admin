@@ -1,3 +1,4 @@
 export const
   CREATE_RATE: string = 'CREATE_RATE',
-  CREATE_RATE_ASYNC: string = `${CREATE_RATE}_ASYNC`
+  CREATE_RATE_ASYNC: string = `${CREATE_RATE}_ASYNC`,
+  CHANGE_RATE_DONE: string = 'CHANGE_RATE_DONE'
