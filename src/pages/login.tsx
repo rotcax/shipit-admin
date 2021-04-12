@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { Form, Input, Button, Checkbox, Card, message } from 'antd'
+import { Form, Input, Button, Checkbox, Card } from 'antd'
 import { useRouter } from 'next/router'
 import { login } from '@store/actions'
 import Head from 'next/head'
@@ -16,20 +16,16 @@ const tailLayout = {
 }
 
 const Login: FC = () => {
-  const { email, hasRemember, isAuth } = useSelector((state: any) => state.auth)
+  const { auth: {email, hasRemember, isAuth}, intermitence: { currentPath } } = useSelector((state: any) => state)
   const dispatch = useDispatch()
   const router = useRouter()
 
   useEffect(() => {
-    if(isAuth) router.push('/')
+    if(isAuth) router.push(currentPath)
   }, [isAuth])
 
   const onFinish = (values: any) => {
     dispatch(login(values))
-  }
-
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo)
   }
 
   return (
@@ -49,7 +45,6 @@ const Login: FC = () => {
                   name="basic"
                   initialValues={{ remember: hasRemember, email }}
                   onFinish={onFinish}
-                  onFinishFailed={onFinishFailed}
                 >
                   <Form.Item
                     label="Email"

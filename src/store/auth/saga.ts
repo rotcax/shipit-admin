@@ -3,6 +3,7 @@ import { message } from 'antd'
 import { actionObject } from '@utils'
 import { users } from '@repository'
 import { LOGIN, LOGIN_ASYNC, LOGOUT, LOGOUT_ASYNC } from './action-types'
+import { SAVE_CURRENT_PATH } from '../intermitence/action-types'
 import { getCommunesAsync } from '../commune/saga'
 import { getCouriersAsync } from '../courier/saga'
 import { getOriginsAsync } from '../origin/saga'
@@ -25,6 +26,10 @@ function* loginAsync({ payload }: any) {
     }))
 
     yield call(getCouriersAsync)
+
+    yield put(actionObject(SAVE_CURRENT_PATH, {
+      currentPath: '/'
+    }))
 
     yield put(actionObject(LOGIN_ASYNC, {
       isAuth: true

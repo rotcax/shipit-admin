@@ -2,7 +2,7 @@ import { FC, useState, createElement, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Layout, Menu, Button, Tooltip } from 'antd'
 import { useRouter } from 'next/router'
-import { logout } from '@store/actions'
+import { logout, saveCurrentPath } from '@store/actions'
 import { HomeLayoutProps } from '@types'
 import {
   MenuUnfoldOutlined,
@@ -26,6 +26,8 @@ const HomeLayout: FC<HomeLayoutProps> = ({ children }) => {
   const router = useRouter()
 
   useEffect(() => {
+    dispatch(saveCurrentPath(router.pathname))
+
     if(!isAuth) router.push('/login')
   }, [isAuth])
 

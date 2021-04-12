@@ -5,6 +5,7 @@ import courier from './courier/reducer'
 import origin from './origin/reducer'
 import rate from './rate/reducer'
 import shipment from './shipment/reducer'
+import intermitence from './intermitence/reducer'
 
 const store = combineReducers({
   auth,
@@ -12,7 +13,8 @@ const store = combineReducers({
   courier,
   origin,
   rate,
-  shipment
+  shipment,
+  intermitence
 })
 
 export default store
